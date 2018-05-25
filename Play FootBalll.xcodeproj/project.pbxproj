@@ -13,6 +13,21 @@
 		FD00B73620B5ED34002AB44F /* Play_FootBalll.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD00B73420B5ED34002AB44F /* Play_FootBalll.xcdatamodeld */; };
 		FD00B73820B5ED36002AB44F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD00B73720B5ED36002AB44F /* Assets.xcassets */; };
 		FD00B73B20B5ED36002AB44F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD00B73920B5ED36002AB44F /* LaunchScreen.storyboard */; };
+		FD00B75120B5F7AA002AB44F /* football-by-funcomputerbackgrounds.websdotcom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FD00B75020B5F7AA002AB44F /* football-by-funcomputerbackgrounds.websdotcom.jpg */; };
+		FD00B75720B627E8002AB44F /* FootBallfield-game.png in Resources */ = {isa = PBXBuildFile; fileRef = FD00B75620B627E8002AB44F /* FootBallfield-game.png */; };
+		FD00B75920B66C95002AB44F /* FootBallField-Home-Visitor.png in Resources */ = {isa = PBXBuildFile; fileRef = FD00B75820B66C95002AB44F /* FootBallField-Home-Visitor.png */; };
+		FD70C07420B88ACC002B0ABF /* ScoreStatus-pressed-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C06720B88ACB002B0ABF /* ScoreStatus-pressed-Final.png */; };
+		FD70C07520B88ACC002B0ABF /* RightLeft-Pressed-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C06820B88ACB002B0ABF /* RightLeft-Pressed-Final.png */; };
+		FD70C07720B88ACC002B0ABF /* ScoreButton-final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C06A20B88ACB002B0ABF /* ScoreButton-final.png */; };
+		FD70C07820B88ACC002B0ABF /* upArrowKey-Pressed-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C06B20B88ACB002B0ABF /* upArrowKey-Pressed-Final.png */; };
+		FD70C07920B88ACC002B0ABF /* Kick-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C06C20B88ACB002B0ABF /* Kick-Final.png */; };
+		FD70C07A20B88ACC002B0ABF /* GameStatus-Pressed-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C06D20B88ACB002B0ABF /* GameStatus-Pressed-Final.png */; };
+		FD70C07B20B88ACC002B0ABF /* GameStatus-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C06E20B88ACC002B0ABF /* GameStatus-Final.png */; };
+		FD70C07C20B88ACC002B0ABF /* DownArrow-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C06F20B88ACC002B0ABF /* DownArrow-Final.png */; };
+		FD70C07D20B88ACC002B0ABF /* UpArrow-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C07020B88ACC002B0ABF /* UpArrow-Final.png */; };
+		FD70C07E20B88ACC002B0ABF /* DownArrowPressed-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C07120B88ACC002B0ABF /* DownArrowPressed-Final.png */; };
+		FD70C07F20B88ACC002B0ABF /* rightLeft-final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C07220B88ACC002B0ABF /* rightLeft-final.png */; };
+		FD70C08020B88ACC002B0ABF /* KickButton-Pressed-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C07320B88ACC002B0ABF /* KickButton-Pressed-Final.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +39,24 @@
 		FD00B73720B5ED36002AB44F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD00B73A20B5ED36002AB44F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD00B73C20B5ED36002AB44F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD00B75020B5F7AA002AB44F /* football-by-funcomputerbackgrounds.websdotcom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "football-by-funcomputerbackgrounds.websdotcom.jpg"; sourceTree = "<group>"; };
+		FD00B75620B627E8002AB44F /* FootBallfield-game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FootBallfield-game.png"; path = "../../Graphics/FootBallfield-game.png"; sourceTree = "<group>"; };
+		FD00B75820B66C95002AB44F /* FootBallField-Home-Visitor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FootBallField-Home-Visitor.png"; sourceTree = "<group>"; };
+		FD70C06420B88A89002B0ABF /* FootBallfield-game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FootBallfield-game.png"; sourceTree = "<group>"; };
+		FD70C06520B88A8C002B0ABF /* FootBallfield-game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FootBallfield-game.png"; path = "../../../Graphics/FootBallfield-game.png"; sourceTree = "<group>"; };
+		FD70C06620B88A94002B0ABF /* FootBallfield-game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FootBallfield-game.png"; path = "../../../Graphics/FootBallfield-game.png"; sourceTree = "<group>"; };
+		FD70C06720B88ACB002B0ABF /* ScoreStatus-pressed-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScoreStatus-pressed-Final.png"; sourceTree = "<group>"; };
+		FD70C06820B88ACB002B0ABF /* RightLeft-Pressed-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RightLeft-Pressed-Final.png"; sourceTree = "<group>"; };
+		FD70C06A20B88ACB002B0ABF /* ScoreButton-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScoreButton-final.png"; sourceTree = "<group>"; };
+		FD70C06B20B88ACB002B0ABF /* upArrowKey-Pressed-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upArrowKey-Pressed-Final.png"; sourceTree = "<group>"; };
+		FD70C06C20B88ACB002B0ABF /* Kick-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kick-Final.png"; sourceTree = "<group>"; };
+		FD70C06D20B88ACB002B0ABF /* GameStatus-Pressed-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameStatus-Pressed-Final.png"; sourceTree = "<group>"; };
+		FD70C06E20B88ACC002B0ABF /* GameStatus-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameStatus-Final.png"; sourceTree = "<group>"; };
+		FD70C06F20B88ACC002B0ABF /* DownArrow-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DownArrow-Final.png"; sourceTree = "<group>"; };
+		FD70C07020B88ACC002B0ABF /* UpArrow-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UpArrow-Final.png"; sourceTree = "<group>"; };
+		FD70C07120B88ACC002B0ABF /* DownArrowPressed-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DownArrowPressed-Final.png"; sourceTree = "<group>"; };
+		FD70C07220B88ACC002B0ABF /* rightLeft-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightLeft-final.png"; sourceTree = "<group>"; };
+		FD70C07320B88ACC002B0ABF /* KickButton-Pressed-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KickButton-Pressed-Final.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +73,8 @@
 		FD00B72120B5ED34002AB44F = {
 			isa = PBXGroup;
 			children = (
+				FD70C06320B88A7A002B0ABF /* Graphics */,
+				FD00B75620B627E8002AB44F /* FootBallfield-game.png */,
 				FD00B72C20B5ED34002AB44F /* Play FootBalll */,
 				FD00B72B20B5ED34002AB44F /* Products */,
 			);
@@ -65,6 +100,30 @@
 				FD00B73420B5ED34002AB44F /* Play_FootBalll.xcdatamodeld */,
 			);
 			path = "Play FootBalll";
+			sourceTree = "<group>";
+		};
+		FD70C06320B88A7A002B0ABF /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				FD70C06F20B88ACC002B0ABF /* DownArrow-Final.png */,
+				FD70C07120B88ACC002B0ABF /* DownArrowPressed-Final.png */,
+				FD70C06E20B88ACC002B0ABF /* GameStatus-Final.png */,
+				FD70C06D20B88ACB002B0ABF /* GameStatus-Pressed-Final.png */,
+				FD70C06C20B88ACB002B0ABF /* Kick-Final.png */,
+				FD70C07320B88ACC002B0ABF /* KickButton-Pressed-Final.png */,
+				FD70C07220B88ACC002B0ABF /* rightLeft-final.png */,
+				FD70C06820B88ACB002B0ABF /* RightLeft-Pressed-Final.png */,
+				FD70C06A20B88ACB002B0ABF /* ScoreButton-final.png */,
+				FD70C06720B88ACB002B0ABF /* ScoreStatus-pressed-Final.png */,
+				FD70C07020B88ACC002B0ABF /* UpArrow-Final.png */,
+				FD70C06B20B88ACB002B0ABF /* upArrowKey-Pressed-Final.png */,
+				FD70C06520B88A8C002B0ABF /* FootBallfield-game.png */,
+				FD70C06620B88A94002B0ABF /* FootBallfield-game.png */,
+				FD00B75020B5F7AA002AB44F /* football-by-funcomputerbackgrounds.websdotcom.jpg */,
+				FD00B75820B66C95002AB44F /* FootBallField-Home-Visitor.png */,
+				FD70C06420B88A89002B0ABF /* FootBallfield-game.png */,
+			);
+			path = Graphics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +184,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD70C07820B88ACC002B0ABF /* upArrowKey-Pressed-Final.png in Resources */,
+				FD00B75120B5F7AA002AB44F /* football-by-funcomputerbackgrounds.websdotcom.jpg in Resources */,
+				FD70C07520B88ACC002B0ABF /* RightLeft-Pressed-Final.png in Resources */,
 				FD00B73B20B5ED36002AB44F /* LaunchScreen.storyboard in Resources */,
 				FD00B73820B5ED36002AB44F /* Assets.xcassets in Resources */,
+				FD70C07920B88ACC002B0ABF /* Kick-Final.png in Resources */,
 				FD00B73320B5ED34002AB44F /* Main.storyboard in Resources */,
+				FD70C07420B88ACC002B0ABF /* ScoreStatus-pressed-Final.png in Resources */,
+				FD70C08020B88ACC002B0ABF /* KickButton-Pressed-Final.png in Resources */,
+				FD00B75720B627E8002AB44F /* FootBallfield-game.png in Resources */,
+				FD70C07C20B88ACC002B0ABF /* DownArrow-Final.png in Resources */,
+				FD70C07D20B88ACC002B0ABF /* UpArrow-Final.png in Resources */,
+				FD70C07A20B88ACC002B0ABF /* GameStatus-Pressed-Final.png in Resources */,
+				FD00B75920B66C95002AB44F /* FootBallField-Home-Visitor.png in Resources */,
+				FD70C07F20B88ACC002B0ABF /* rightLeft-final.png in Resources */,
+				FD70C07B20B88ACC002B0ABF /* GameStatus-Final.png in Resources */,
+				FD70C07E20B88ACC002B0ABF /* DownArrowPressed-Final.png in Resources */,
+				FD70C07720B88ACC002B0ABF /* ScoreButton-final.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
