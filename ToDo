@@ -1,0 +1,16 @@
+TODO
+--------
+test to see if display works on ipad now.
+create classes for Player, Status, and Sounds
+change color of offensive player to Green, and the defense to Red
+Add constraints to app, allow the controls and displays to adjust to the different sized
+   devices.
+
+add outlets and Action keys to ViewController
+Change Image when key is pressed
+create Multiplier Class file
+
+
+Finished
+--------
+Main interface is created.... Displays on all iphone screens
