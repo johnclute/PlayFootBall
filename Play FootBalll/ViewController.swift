@@ -48,7 +48,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         let y = downs.font?.pointSize
         let y2 = lblDown.font?.pointSize
-        print("y = \(y!)  y2 = \(y2!)")
         let fntSz = sizeModifier.calcTextFieldFont()
         let newFnt = UIFont(name: downs.font!.fontName, size: CGFloat(CGFloat(fntSz) * y!))
         downs.font = newFnt
@@ -62,10 +61,7 @@ class ViewController: UIViewController {
         lblTimeRemaining.font = lblFnt
         lblVisitor.font = lblFnt
         lblVisitor.font = lblFnt
-        
-        
-        print("Label Height - \(fntSz) TextfieldHeight - \(lblFntSz)")
-        
+                
     }
     
     override func didReceiveMemoryWarning() {
