@@ -45,11 +45,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var powerButton: UISwitch!
     @IBOutlet weak var difficultyButton: UISwitch!
     
-    func setSizes() {
-      //  let ht = sizeModifier.scoreBoardDim[0]
-      //  let wd = sizeModifier.scoreBoardDim[1]
-       // let scrBrdHtRatio = sizeModifier.getRatio(item: Float32(ht), container: Float32(sizeModifier.deviceDim[0]))
-       // let scrBrdWdRatio = sizeModifier.getRatio(item: Float32(wd), container: Float32(sizeModifier.deviceDim[1]))
+    override func viewDidLoad() {
+        let y = downs.font?.pointSize
+        let y2 = lblDown.font?.pointSize
+        print("y = \(y!)  y2 = \(y2!)")
+        let fntSz = sizeModifier.calcTextFieldFont()
+        let newFnt = UIFont(name: downs.font!.fontName, size: CGFloat(CGFloat(fntSz) * y!))
+        downs.font = newFnt
+        fldPositon.font = newFnt
+        yardsToGo.font = newFnt
+        let lblFntSz  = sizeModifier.calcLabelFont()
+        let lblFnt = UIFont(name: lblDown.font.fontName, size: CGFloat(CGFloat(lblFntSz) * y2! ))
+        lblDown.font = lblFnt
+        lblYTD.font = lblFnt
+        lblHome.font = lblFnt
+        lblTimeRemaining.font = lblFnt
+        lblVisitor.font = lblFnt
+        lblVisitor.font = lblFnt
+        
+        
+        print("Label Height - \(fntSz) TextfieldHeight - \(lblFntSz)")
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        //      super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     /*
@@ -139,27 +160,6 @@ class ViewController: UIViewController {
     }
 */
     
-    override func viewDidLoad() {
- //       super.viewDidLoad()
-        
-/*        clearField()
-        turnOffScoreBoard()
-        powerButton.isOn = false
-        difficultyButton.isOn = false
-        statusButton.isEnabled = false
-        scoreButton.isEnabled = false
-        kickButton.isEnabled = false
-        runRightLeftButton.isEnabled = false
-        upButton.isEnabled = false
-        downButton.isEnabled = false
-*/
-    }
-
-    override func didReceiveMemoryWarning() {
-  //      super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

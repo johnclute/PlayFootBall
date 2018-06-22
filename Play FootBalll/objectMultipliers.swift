@@ -22,7 +22,19 @@ class objectMultiplierClass {
     // Controller information
     public let controlsDim = [222, 320]
     
+    public func calcLabelFont( ) -> Float32 {
+        var rtHeight: Float32 = 0
+        let ratio = Float32(14/80.5)
+        rtHeight = (ratio + 1.0)
+        return rtHeight
+    }
     
+    public func calcTextFieldFont() -> Float32 {
+        var rtHeight: Float32 = 0
+        let ratio = Float32(24/80.5)
+        rtHeight = (ratio + 1.0 )
+        return rtHeight
+    }
     
     public func getRatio( item: Float32, container: Float32 ) -> Float32 {
         let ratio = item / container
