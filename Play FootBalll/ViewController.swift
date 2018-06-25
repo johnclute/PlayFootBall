@@ -19,7 +19,11 @@ class ViewController: UIViewController {
     var fieldTimer: Timer?
     /*
      Outlets, Textfields, labels and buttons
-     */
+    */
+    // Field Position labels
+    @IBOutlet var lblFieldPosition: [UILabel]!
+    
+    
     //Score board
     @IBOutlet weak var downs: UITextField!
     @IBOutlet weak var fldPositon: UITextField!
@@ -33,7 +37,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblVisitor: UILabel!
     
     // Playing field
-    @IBOutlet var fldLocation: [UILabel]!
     
     // Controller buttons
     @IBOutlet weak var statusButton: UIButton!
@@ -46,6 +49,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var difficultyButton: UISwitch!
     
     override func viewDidLoad() {
+
+        turnOffControls()
+        initialSetup()
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        //      super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func initialSetup() {
         let y = downs.font?.pointSize
         let y2 = lblDown.font?.pointSize
         let fntSz = sizeModifier.calcTextFieldFont()
@@ -61,12 +76,16 @@ class ViewController: UIViewController {
         lblTimeRemaining.font = lblFnt
         lblVisitor.font = lblFnt
         lblVisitor.font = lblFnt
-                
-    }
-    
-    override func didReceiveMemoryWarning() {
-        //      super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        let fldPosFntSz = lblFieldPosition[0].font.pointSize
+        let fldFont = sizeModifier.calcTextFieldFont()
+        let newFldFont = UIFont(name: lblFieldPosition[0].font.fontName, size: CGFloat(CGFloat(fldFont) * fldPosFntSz))
+        print("Count of objects: \(lblFieldPosition.count)")
+        for i in 0...(lblFieldPosition.count - 1) {
+            print("Count: \(i)")
+            lblFieldPosition[i].font = newFldFont
+            lblFieldPosition[i].text = ""
+        }
     }
     
     /*
@@ -99,9 +118,9 @@ class ViewController: UIViewController {
     
     @IBAction func powerSwitchTouched(_ sender: Any) {
         if ( powerButton.isOn == true ) {
-   //         gameStarted()
+            gameStarted()
         } else {
-  //          gameStopped()
+           gameStopped()
         }
     }
     
@@ -119,42 +138,52 @@ class ViewController: UIViewController {
         yardsToGo.text = ""
     }
     func lightUpField() {
-        let sz = fldLocation.count - 1
+        let sz = lblFieldPosition.count - 1
         for i in 0...sz {
-            fldLocation[i].text = "-"
+            lblFieldPosition[i].text = "-"
         }
     }
     
     @objc func clearField() {
- //       let sz = fldLocation.count - 1
- //       print("sz = \(sz)")
- //       for i in 0...sz {
- //           fldLocation[i].text = ""
- //           print("i = \(i)")
- //       }
+        let sz = lblFieldPosition.count - 1
+        print("sz = \(sz)")
+        for i in 0...sz {
+            lblFieldPosition[i].text = ""
+           print("i = \(i)")
+       }
     }
     
-/*    func gameStarted () {
+    func gameStarted () {
         turnOnScoreBoard()
         blinkTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(turnOffScoreBoard), userInfo: nil, repeats: false)
         lightUpField()
         fieldTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(clearField), userInfo: nil, repeats: false)
-        statusButton.isEnabled = true
-        scoreButton.isEnabled = true
-        runRightLeftButton.isEnabled = true
-        upButton.isEnabled = true
-        downButton.isEnabled = true
+        turnOnControls()
     }
     
     func gameStopped() {
+        turnOffControls()
+    }
+    
+    func turnOffControls() {
         statusButton.isEnabled = false
         scoreButton.isEnabled = false
         runRightLeftButton.isEnabled = false
         upButton.isEnabled = false
         downButton.isEnabled = false
-        
+        kickButton.isEnabled = false
+
     }
-*/
+    
+    func turnOnControls() {
+        statusButton.isEnabled = true
+        scoreButton.isEnabled = true
+        kickButton.isEnabled = true
+        runRightLeftButton.isEnabled = true
+        upButton.isEnabled = true
+        downButton.isEnabled = true
+
+    }
     
 
 }

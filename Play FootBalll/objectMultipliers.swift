@@ -36,6 +36,13 @@ class objectMultiplierClass {
         return rtHeight
     }
     
+    public func calcPlayerFieldRatio() -> Float32 {
+        var rtHeight: Float32 = 0
+        let ratio = Float32(9.5/163)
+        rtHeight = (ratio + 1.0)
+        return rtHeight
+    }
+    
     public func getRatio( item: Float32, container: Float32 ) -> Float32 {
         let ratio = item / container
         return ratio
