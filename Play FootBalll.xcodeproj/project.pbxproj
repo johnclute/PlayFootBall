@@ -74,6 +74,15 @@
 		FD70C07D20B88ACC002B0ABF /* UpArrow-Final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C07020B88ACC002B0ABF /* UpArrow-Final.png */; };
 		FD70C07F20B88ACC002B0ABF /* rightLeft-final.png in Resources */ = {isa = PBXBuildFile; fileRef = FD70C07220B88ACC002B0ABF /* rightLeft-final.png */; };
 		FD70C08220B89C17002B0ABF /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = FD70C08120B89C17002B0ABF /* ToDo */; };
+		FDB1F01920E16A14001CD9D5 /* SoundUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1F01820E16A14001CD9D5 /* SoundUtilities.swift */; };
+		FDB1F02220E16A95001CD9D5 /* MEF2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01B20E16A95001CD9D5 /* MEF2.mp3 */; };
+		FDB1F02320E16A95001CD9D5 /* MEF3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01C20E16A95001CD9D5 /* MEF3.mp3 */; };
+		FDB1F02420E16A95001CD9D5 /* MEF5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01D20E16A95001CD9D5 /* MEF5.mp3 */; };
+		FDB1F02520E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01E20E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 */; };
+		FDB1F02620E16A95001CD9D5 /* Button-Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01F20E16A95001CD9D5 /* Button-Click.mp3 */; };
+		FDB1F02720E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F02020E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 */; };
+		FDB1F02820E16A95001CD9D5 /* MEF4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F02120E16A95001CD9D5 /* MEF4.mp3 */; };
+		FDB1F02A20E16ED3001CD9D5 /* TimerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1F02920E16ED3001CD9D5 /* TimerUtilities.swift */; };
 		FDC10D0A20CE3695004B6825 /* objectMultipliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC10D0920CE3695004B6825 /* objectMultipliers.swift */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +159,15 @@
 		FD70C07020B88ACC002B0ABF /* UpArrow-Final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UpArrow-Final.png"; sourceTree = "<group>"; };
 		FD70C07220B88ACC002B0ABF /* rightLeft-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightLeft-final.png"; sourceTree = "<group>"; };
 		FD70C08120B89C17002B0ABF /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
+		FDB1F01820E16A14001CD9D5 /* SoundUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundUtilities.swift; sourceTree = "<group>"; };
+		FDB1F01B20E16A95001CD9D5 /* MEF2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MEF2.mp3; sourceTree = "<group>"; };
+		FDB1F01C20E16A95001CD9D5 /* MEF3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MEF3.mp3; sourceTree = "<group>"; };
+		FDB1F01D20E16A95001CD9D5 /* MEF5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MEF5.mp3; sourceTree = "<group>"; };
+		FDB1F01E20E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = partnersinrhyme_BEEP1B.mp3; sourceTree = "<group>"; };
+		FDB1F01F20E16A95001CD9D5 /* Button-Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Button-Click.mp3"; sourceTree = "<group>"; };
+		FDB1F02020E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = partnersinrhyme_CLICK17C.mp3; sourceTree = "<group>"; };
+		FDB1F02120E16A95001CD9D5 /* MEF4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MEF4.mp3; sourceTree = "<group>"; };
+		FDB1F02920E16ED3001CD9D5 /* TimerUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtilities.swift; sourceTree = "<group>"; };
 		FDC10D0920CE3695004B6825 /* objectMultipliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectMultipliers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +185,7 @@
 		FD00B72120B5ED34002AB44F = {
 			isa = PBXGroup;
 			children = (
+				FDB1F01A20E16A55001CD9D5 /* SoundClips */,
 				FD70C08120B89C17002B0ABF /* ToDo */,
 				FD17C50420BF252D00038C52 /* SF Compact Display */,
 				FD17C4EA20BF252C00038C52 /* SF Compact Text */,
@@ -198,6 +217,8 @@
 				FD00B73920B5ED36002AB44F /* LaunchScreen.storyboard */,
 				FD00B73C20B5ED36002AB44F /* Info.plist */,
 				FD00B73420B5ED34002AB44F /* Play_FootBalll.xcdatamodeld */,
+				FDB1F01820E16A14001CD9D5 /* SoundUtilities.swift */,
+				FDB1F02920E16ED3001CD9D5 /* TimerUtilities.swift */,
 			);
 			path = "Play FootBalll";
 			sourceTree = "<group>";
@@ -299,6 +320,20 @@
 			path = Graphics;
 			sourceTree = "<group>";
 		};
+		FDB1F01A20E16A55001CD9D5 /* SoundClips */ = {
+			isa = PBXGroup;
+			children = (
+				FDB1F01F20E16A95001CD9D5 /* Button-Click.mp3 */,
+				FDB1F01B20E16A95001CD9D5 /* MEF2.mp3 */,
+				FDB1F01C20E16A95001CD9D5 /* MEF3.mp3 */,
+				FDB1F02120E16A95001CD9D5 /* MEF4.mp3 */,
+				FDB1F01D20E16A95001CD9D5 /* MEF5.mp3 */,
+				FDB1F01E20E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 */,
+				FDB1F02020E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 */,
+			);
+			path = SoundClips;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -366,6 +401,7 @@
 				FD17C54020BF252D00038C52 /* SFCompactDisplay-Thin.otf in Resources */,
 				FD17C52020BF252D00038C52 /* SFCompactText-Medium.otf in Resources */,
 				FD17C51520BF252D00038C52 /* SF-Pro-Display-Heavy.otf in Resources */,
+				FDB1F02320E16A95001CD9D5 /* MEF3.mp3 in Resources */,
 				FD17C53620BF252D00038C52 /* SF-Pro-Text-Medium.otf in Resources */,
 				FD17C53820BF252D00038C52 /* SFCompactDisplay-Heavy.otf in Resources */,
 				FD17C53420BF252D00038C52 /* SF-Pro-Text-HeavyItalic.otf in Resources */,
@@ -377,6 +413,7 @@
 				FD00B73820B5ED36002AB44F /* Assets.xcassets in Resources */,
 				FD17C51820BF252D00038C52 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
 				FD17C51320BF252D00038C52 /* SF-Pro-Display-Bold.otf in Resources */,
+				FDB1F02520E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 in Resources */,
 				FD17C53A20BF252D00038C52 /* SFCompactDisplay-Semibold.otf in Resources */,
 				FD17C52720BF252D00038C52 /* SFCompactText-Light.otf in Resources */,
 				FD70C07920B88ACC002B0ABF /* Kick-Final.png in Resources */,
@@ -388,6 +425,7 @@
 				FD17C52420BF252D00038C52 /* SFCompactText-MediumItalic.otf in Resources */,
 				FD00B75720B627E8002AB44F /* FootBallfield-game.png in Resources */,
 				FD17C53220BF252D00038C52 /* SF-Pro-Text-RegularItalic.otf in Resources */,
+				FDB1F02420E16A95001CD9D5 /* MEF5.mp3 in Resources */,
 				FD17C53120BF252D00038C52 /* SF-Pro-Text-BoldItalic.otf in Resources */,
 				FD70C07C20B88ACC002B0ABF /* DownArrow-Final.png in Resources */,
 				FD70C07D20B88ACC002B0ABF /* UpArrow-Final.png in Resources */,
@@ -399,6 +437,7 @@
 				FD17C51F20BF252D00038C52 /* SF-Pro-Display-BoldItalic.otf in Resources */,
 				FD17C51920BF252D00038C52 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				FD17C51020BF252D00038C52 /* SF-Pro-Display-RegularItalic.otf in Resources */,
+				FDB1F02820E16A95001CD9D5 /* MEF4.mp3 in Resources */,
 				FD17C52A20BF252D00038C52 /* SFCompactText-HeavyItalic.otf in Resources */,
 				FD17C51A20BF252D00038C52 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
 				FD17C52220BF252D00038C52 /* SFCompactText-Regular.otf in Resources */,
@@ -409,6 +448,7 @@
 				FD17C52F20BF252D00038C52 /* SF-Pro-Text-Regular.otf in Resources */,
 				FD17C52820BF252D00038C52 /* SFCompactText-Bold.otf in Resources */,
 				FD17C53920BF252D00038C52 /* SFCompactDisplay-Light.otf in Resources */,
+				FDB1F02220E16A95001CD9D5 /* MEF2.mp3 in Resources */,
 				FD17C53B20BF252D00038C52 /* SFCompactDisplay-Medium.otf in Resources */,
 				FD17C52320BF252D00038C52 /* SFCompactText-BoldItalic.otf in Resources */,
 				FD17C53320BF252D00038C52 /* SF-Pro-Text-Semibold.otf in Resources */,
@@ -416,11 +456,13 @@
 				FD70C07720B88ACC002B0ABF /* ScoreButton-final.png in Resources */,
 				FD17C52E20BF252D00038C52 /* SF-Pro-Text-Light.otf in Resources */,
 				FD17C51220BF252D00038C52 /* SF-Pro-Display-Regular.otf in Resources */,
+				FDB1F02620E16A95001CD9D5 /* Button-Click.mp3 in Resources */,
 				FD17C51620BF252D00038C52 /* SF-Pro-Display-Semibold.otf in Resources */,
 				FD17C51E20BF252D00038C52 /* SF-Pro-Display-ThinItalic.otf in Resources */,
 				FD17C50F20BF252D00038C52 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
 				FD17C53F20BF252D00038C52 /* SFCompactDisplay-Ultralight.otf in Resources */,
 				FD17C52920BF252D00038C52 /* SFCompactText-Heavy.otf in Resources */,
+				FDB1F02720E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +475,9 @@
 			files = (
 				FD00B73020B5ED34002AB44F /* ViewController.swift in Sources */,
 				FD00B72E20B5ED34002AB44F /* AppDelegate.swift in Sources */,
+				FDB1F02A20E16ED3001CD9D5 /* TimerUtilities.swift in Sources */,
 				FD00B73620B5ED34002AB44F /* Play_FootBalll.xcdatamodeld in Sources */,
+				FDB1F01920E16A14001CD9D5 /* SoundUtilities.swift in Sources */,
 				FDC10D0A20CE3695004B6825 /* objectMultipliers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

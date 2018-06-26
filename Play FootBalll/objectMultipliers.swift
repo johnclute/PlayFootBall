@@ -10,6 +10,7 @@ import Foundation
 
 class objectMultiplierClass {
     let deviceDim = [667, 375]
+    let DEBUG = 3
     
     // Score board information
     let scoreboardTextFieldHeight = 0.2963
@@ -24,15 +25,18 @@ class objectMultiplierClass {
     
     public func calcLabelFont( ) -> Float32 {
         var rtHeight: Float32 = 0
-        let ratio = Float32(14/80.5)
+        let ratio = Float32((14/80.5) * (1/2))
         rtHeight = (ratio + 1.0)
         return rtHeight
     }
     
     public func calcTextFieldFont() -> Float32 {
         var rtHeight: Float32 = 0
-        let ratio = Float32(24/80.5)
+        let ratio = Float32((24/80.5) * (1/2))
         rtHeight = (ratio + 1.0 )
+        if ( DEBUG < 4 ) {
+            print("Height: \(rtHeight)")
+        }
         return rtHeight
     }
     
