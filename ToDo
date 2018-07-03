@@ -3,19 +3,12 @@ TODO
 test to see if display works on ipad now.
 create classes for Player, Status, and Sounds
 change color of offensive player to Green, and the defense to Red
-add outlets and Action keys to ViewController
-add logic to move the ball
-add logic to move the defense
 redo defense logic so that it will move forward, randomly moving
   a defensive player when the ball is a certain length way, however when the ball
   is within 1 move the defense to intercept.
-display Scores
-Display status
-Display time
 set up count down timer
-set positions of play
-add code for powering on game
 fix why sound is not working in class.
+
 
 Finished
 --------
@@ -23,3 +16,13 @@ Main interface is created.... Displays on all iphone screens
 Resizing controls on screen, so now they are porportional to the device screen size.
 Change Image when key is pressed
 create Multiplier Class file
+Fix middle text window, time is getting cut off.
+Fix Timer,
+display Scores
+Display status
+Display time
+add outlets and Action keys to ViewController
+add logic to move the ball
+add logic to move the defense
+set positions of play
+add code for powering on game

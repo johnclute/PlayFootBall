@@ -32,7 +32,7 @@ class objectMultiplierClass {
     
     public func calcTextFieldFont() -> Float32 {
         var rtHeight: Float32 = 0
-        let ratio = Float32((24/80.5) * (1/2))
+        let ratio = Float32((24/80.5) * (1/4))
         rtHeight = (ratio + 1.0 )
         if ( DEBUG < 4 ) {
             print("Height: \(rtHeight)")

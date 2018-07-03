@@ -470,8 +470,10 @@ class ViewController: UIViewController {
     @IBAction func powerSwitchTouched(_ sender: Any) {
         if ( powerButton.isOn == true ) {
             gameStarted()
+            startGame()
         } else {
            gameStopped()
+            stopGame()
         }
     }
     
