@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var toFirstDown: Int = 10
     var visitorScore: Int = 0
     var homeScore: Int = 0
+    var scoredFieldGoal: Bool = false
 
     let sizeModifier = objectMultiplierClass()
     let QUARTERLIMIT: Int32 = 900
@@ -87,9 +88,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var difficultyButton: UISwitch!
     
     override func viewDidLoad() {
-        
+        difficultyButton.isEnabled = true
         turnOffControls()
         initialSetup()
+        
         if ( difficultyButton.isOn ) {
             defenseInterval = 1.0
         } else {
@@ -97,7 +99,7 @@ class ViewController: UIViewController {
         }
         sndClass.setClick()
         sndClass.setTurnOnSound()
-    }
+}
     
     override func didReceiveMemoryWarning() {
         //      super.didReceiveMemoryWarning()
@@ -158,7 +160,7 @@ class ViewController: UIViewController {
     //Status Key
     @IBAction func statusPressed(_ sender: Any) {
         
-        sndClass.buttonPlayer.stop()
+    //    sndClass.buttonPlayer.stop()
         sndClass.buttonPlayer.play()
         if ( accessStatButton ) {
             blinkTimer?.invalidate()
@@ -199,7 +201,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func scorePressed(_ sender: Any) {
-        sndClass.buttonPlayer.stop()
+   //     sndClass.buttonPlayer.stop()
         sndClass.buttonPlayer.play()
         if ( accessStatButton ) {
             blinkTimer?.invalidate()
@@ -232,7 +234,7 @@ class ViewController: UIViewController {
         sndClass.buttonPlayer.play()
         let fieldGoalLimit : UInt32 = 55
         if (DEBUG > 3) {
-            print("Kicking Balling")
+            print("Kicking Ball")
         }
         arc4random_stir()
         if (directionForward) {
@@ -260,7 +262,7 @@ class ViewController: UIViewController {
             } else {
                 // field Goal
                 if ( DEBUG > 3 ) {
-                    print("Home Kicking fieldGoal")
+                    print("Home Kicking field Goal")
                 }
                 let randNum = Int(arc4random_uniform(fieldGoalLimit))
                 let relativeFieldPos = (100 - fieldPos)
@@ -270,8 +272,7 @@ class ViewController: UIViewController {
                 if ( randNum > (relativeFieldPos)) { // seeing if field goal went farther then field pos
                     // if it did then we have scored.
                     homeScore += 3
-                    sndClass.setBeepSound(sndIdx: 3)
-                    sndClass.beepSound.play()
+                    scoredFieldGoal = true
                     stopPlay()
                     initAllVars()
                 } else {
@@ -308,8 +309,7 @@ class ViewController: UIViewController {
                 if ( randNum > (fieldPos) ) { // determining if kick went farther then
                     // if it did then we have scored a field goal
                     visitorScore += 3
-                    sndClass.setBeepSound(sndIdx: 3)
-                    sndClass.beepSound.play()
+                    scoredFieldGoal = true
                     stopPlay()
                     initAllVars()
                 } else {
@@ -324,7 +324,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func runPressed(_ sender: Any) {
-        sndClass.buttonPlayer.stop()
+//        sndClass.buttonPlayer.stop()
         sndClass.buttonPlayer.play()
         if ( DEBUG > 3 ) {
             print("lightUpScreen - Before StartTimer")
@@ -360,7 +360,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func upPressed(_ sender: Any) {
-        sndClass.buttonPlayer.stop()
+ //      sndClass.buttonPlayer.stop()
         sndClass.buttonPlayer.play()
         if ( startOfDowns ) {
             if ( DEBUG > 3 ) {
@@ -381,8 +381,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func downPressed(_ sender: Any) {
-        sndClass.buttonPlayer.stop()
-        sndClass.buttonPlayer.play()
+   //     sndClass.buttonPlayer.stop()
+          sndClass.buttonPlayer.play()
         if ( startOfDowns ) {
             if ( DEBUG > 3 ) {
                 print("downPlayer - before startTimer")
@@ -442,6 +442,10 @@ class ViewController: UIViewController {
         if tmpI >= tmpIdx.count {
             pauseTimer?.invalidate()
             pauseTimer = nil
+            if ( scoredFieldGoal ) {
+                sndClass.setBeepSound(sndIdx: 3)
+                sndClass.beepSound.play()
+            }
         }
     }
     
@@ -453,6 +457,10 @@ class ViewController: UIViewController {
         if tmpI < 0 {
             pauseTimer?.invalidate()
             pauseTimer = nil
+            if ( scoredFieldGoal ) {
+                sndClass.setBeepSound(sndIdx: 3)
+                sndClass.beepSound.play()
+            }
         }
     }
     
@@ -478,6 +486,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func programSwitchTouched(_ sender: Any) {
+     //   sndClass.buttonPlayer.stop()
+        sndClass.buttonPlayer.play()
+        if ( DEBUG > 3 ) {
+            print ("Program button is turned on: \(difficultyButton.isOn)")
+        }
+        if ( difficultyButton.isOn ) {
+            defenseInterval = 1.0
+        } else {
+            defenseInterval = 2.0
+        }
     }
     
     func runButtonUpRoutine() {
@@ -530,10 +548,10 @@ class ViewController: UIViewController {
         downs.text = ""
         fldPositon.text = ""
         yardsToGo.text = ""
+        clearAllDefense()
         clearField()
         setCellImage(lbl: lblFieldPosition[idx])
         setupNextPlay()
-        displayDefense()
         upButton.isEnabled = true
         downButton.isEnabled = true
         runRightLeftButton.isEnabled = true
@@ -541,7 +559,6 @@ class ViewController: UIViewController {
         statusButton.isEnabled = true
         scoreButton.isEnabled = true
         
-        difficultyButton.isEnabled = false
         
         gameTimerStarted = false
         visitorScore = 0
@@ -550,8 +567,10 @@ class ViewController: UIViewController {
         fieldPos = 20
         firstDownMarker = 30
         currentDown = 1
-        
+
         startGameTimer()
+        displayDefense()
+        
     }
 
     func stopGame () {
@@ -663,6 +682,7 @@ class ViewController: UIViewController {
             lblFieldPosition[i].text = ""
            print("i = \(i)")
        }
+        runButtonUpRoutine()
     }
     
     func getRowCol(cellIdx: Int) -> [Int]{
@@ -911,6 +931,7 @@ class ViewController: UIViewController {
     }
 
     @objc func moveDefense() {
+        // work on new algorythm to move the defense
         //  print ("Interval - \(defenseInterval)")
         clearAllDefense()
         findClosest()

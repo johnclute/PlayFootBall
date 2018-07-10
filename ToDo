@@ -8,6 +8,7 @@ redo defense logic so that it will move forward, randomly moving
   is within 1 move the defense to intercept.
 set up count down timer
 fix why sound is not working in class.
+fix how defense moves.
 
 
 Finished
