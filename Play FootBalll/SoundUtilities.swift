@@ -12,8 +12,8 @@ import AVKit
 class soundUtilities {
     
     public var buttonPlayer = AVAudioPlayer()
+    public var buttonSounds = AVAudioPlayer()
     public var beepSound = AVAudioPlayer()
-    public var turnOnPlayer = AVAudioPlayer()
     
 
     func setBeepSound(sndIdx: Int) {
@@ -40,22 +40,23 @@ class soundUtilities {
         }
         
     }
-    
-    func setTurnOnSound() {
-        let audioPath = Bundle.main.path(forResource: "Button-Click", ofType: "mp3")
+        
+    func setClick() {
+        let audioPath = Bundle.main.path(forResource: "partnersinrhyme_CLICK17C", ofType: "mp3")
         let url = URL(fileURLWithPath: audioPath!)
         
         do {
             
-            try turnOnPlayer = AVAudioPlayer(contentsOf: url)
+            try buttonSounds = AVAudioPlayer(contentsOf: url)
             
         } catch {
             
             print("Could not get click audio player to work")
         }
     }
-    func setClick() {
-        let audioPath = Bundle.main.path(forResource: "partnersinrhyme_CLICK17C", ofType: "mp3")
+    
+    func setBeep() {
+        let audioPath = Bundle.main.path(forResource: "partnersinrhyme_BEEP1B", ofType: "mp3")
         let url = URL(fileURLWithPath: audioPath!)
         
         do {
@@ -68,5 +69,4 @@ class soundUtilities {
         }
     }
 
-    
 }

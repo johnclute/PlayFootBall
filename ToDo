@@ -6,9 +6,7 @@ change color of offensive player to Green, and the defense to Red
 redo defense logic so that it will move forward, randomly moving
   a defensive player when the ball is a certain length way, however when the ball
   is within 1 move the defense to intercept.
-set up count down timer
-fix why sound is not working in class.
-fix how defense moves.
+
 
 
 Finished
@@ -27,3 +25,7 @@ add logic to move the ball
 add logic to move the defense
 set positions of play
 add code for powering on game
+fix why sound is not working in class.
+added more sound effects to program, when a field goal fails it give a tackle sound
+added beeps when moving the player
+set up count down timer

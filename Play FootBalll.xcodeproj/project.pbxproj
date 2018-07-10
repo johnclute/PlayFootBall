@@ -78,7 +78,6 @@
 		FDB1F02320E16A95001CD9D5 /* MEF3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01C20E16A95001CD9D5 /* MEF3.mp3 */; };
 		FDB1F02420E16A95001CD9D5 /* MEF5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01D20E16A95001CD9D5 /* MEF5.mp3 */; };
 		FDB1F02520E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01E20E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 */; };
-		FDB1F02620E16A95001CD9D5 /* Button-Click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01F20E16A95001CD9D5 /* Button-Click.mp3 */; };
 		FDB1F02720E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F02020E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 */; };
 		FDB1F02820E16A95001CD9D5 /* MEF4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F02120E16A95001CD9D5 /* MEF4.mp3 */; };
 		FDB1F02A20E16ED3001CD9D5 /* TimerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1F02920E16ED3001CD9D5 /* TimerUtilities.swift */; };
@@ -160,7 +159,6 @@
 		FDB1F01C20E16A95001CD9D5 /* MEF3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MEF3.mp3; sourceTree = "<group>"; };
 		FDB1F01D20E16A95001CD9D5 /* MEF5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MEF5.mp3; sourceTree = "<group>"; };
 		FDB1F01E20E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = partnersinrhyme_BEEP1B.mp3; sourceTree = "<group>"; };
-		FDB1F01F20E16A95001CD9D5 /* Button-Click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Button-Click.mp3"; sourceTree = "<group>"; };
 		FDB1F02020E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = partnersinrhyme_CLICK17C.mp3; sourceTree = "<group>"; };
 		FDB1F02120E16A95001CD9D5 /* MEF4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MEF4.mp3; sourceTree = "<group>"; };
 		FDB1F02920E16ED3001CD9D5 /* TimerUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtilities.swift; sourceTree = "<group>"; };
@@ -316,7 +314,6 @@
 		FDB1F01A20E16A55001CD9D5 /* SoundClips */ = {
 			isa = PBXGroup;
 			children = (
-				FDB1F01F20E16A95001CD9D5 /* Button-Click.mp3 */,
 				FDB1F01B20E16A95001CD9D5 /* MEF2.mp3 */,
 				FDB1F01C20E16A95001CD9D5 /* MEF3.mp3 */,
 				FDB1F02120E16A95001CD9D5 /* MEF4.mp3 */,
@@ -448,7 +445,6 @@
 				FD70C07720B88ACC002B0ABF /* ScoreButton-final.png in Resources */,
 				FD17C52E20BF252D00038C52 /* SF-Pro-Text-Light.otf in Resources */,
 				FD17C51220BF252D00038C52 /* SF-Pro-Display-Regular.otf in Resources */,
-				FDB1F02620E16A95001CD9D5 /* Button-Click.mp3 in Resources */,
 				FD17C51620BF252D00038C52 /* SF-Pro-Display-Semibold.otf in Resources */,
 				FD17C51E20BF252D00038C52 /* SF-Pro-Display-ThinItalic.otf in Resources */,
 				FD17C50F20BF252D00038C52 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,

@@ -98,7 +98,7 @@ class ViewController: UIViewController {
             defenseInterval = 2.0
         }
         sndClass.setClick()
-        sndClass.setTurnOnSound()
+        sndClass.setBeep()
 }
     
     override func didReceiveMemoryWarning() {
@@ -160,8 +160,8 @@ class ViewController: UIViewController {
     //Status Key
     @IBAction func statusPressed(_ sender: Any) {
         
-    //    sndClass.buttonPlayer.stop()
-        sndClass.buttonPlayer.play()
+        sndClass.buttonSounds.stop()
+        sndClass.buttonSounds.play()
         if ( accessStatButton ) {
             blinkTimer?.invalidate()
             blinkTimer = nil
@@ -201,8 +201,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func scorePressed(_ sender: Any) {
-   //     sndClass.buttonPlayer.stop()
-        sndClass.buttonPlayer.play()
+        sndClass.buttonSounds.stop()
+        sndClass.buttonSounds.play()
         if ( accessStatButton ) {
             blinkTimer?.invalidate()
             dPlayer = 99
@@ -230,8 +230,8 @@ class ViewController: UIViewController {
         isGamePaused = false
         pauseGame(gamePaused: isGamePaused)
         isGamePaused = true
-        sndClass.buttonPlayer.stop()
-        sndClass.buttonPlayer.play()
+        sndClass.buttonSounds.stop()
+        sndClass.buttonSounds.play()
         let fieldGoalLimit : UInt32 = 55
         if (DEBUG > 3) {
             print("Kicking Ball")
@@ -445,8 +445,10 @@ class ViewController: UIViewController {
             if ( scoredFieldGoal ) {
                 sndClass.setBeepSound(sndIdx: 3)
                 sndClass.beepSound.play()
-            }
-        }
+            }  else {
+                sndClass.setBeepSound(sndIdx: 1)
+                sndClass.beepSound.play()
+            }        }
     }
     
     @objc func nothing2() {
@@ -459,6 +461,9 @@ class ViewController: UIViewController {
             pauseTimer = nil
             if ( scoredFieldGoal ) {
                 sndClass.setBeepSound(sndIdx: 3)
+                sndClass.beepSound.play()
+            } else {
+                sndClass.setBeepSound(sndIdx: 1)
                 sndClass.beepSound.play()
             }
         }
@@ -476,6 +481,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func powerSwitchTouched(_ sender: Any) {
+        sndClass.buttonSounds.stop()
+        sndClass.buttonSounds.play()
         if ( powerButton.isOn == true ) {
             gameStarted()
             startGame()
@@ -486,8 +493,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func programSwitchTouched(_ sender: Any) {
-     //   sndClass.buttonPlayer.stop()
-        sndClass.buttonPlayer.play()
+        sndClass.buttonSounds.stop()
+        sndClass.buttonSounds.play()
         if ( DEBUG > 3 ) {
             print ("Program button is turned on: \(difficultyButton.isOn)")
         }
@@ -926,7 +933,7 @@ class ViewController: UIViewController {
         lbl.font = UIFont(name: "Din Alternate", size: 32.0)
         
         lbl.text = "-"
-        lbl.textColor = UIColor.red
+        lbl.textColor = UIColor.orange
         
     }
 
