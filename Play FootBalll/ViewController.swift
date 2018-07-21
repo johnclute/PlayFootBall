@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     var visitorScore: Int = 0
     var homeScore: Int = 0
     var scoredFieldGoal: Bool = false
+    var defenseStrategy = 2
+    var defensePlayCount = 0
+    
 
     let sizeModifier = objectMultiplierClass()
     let QUARTERLIMIT: Int32 = 900
@@ -92,6 +95,7 @@ class ViewController: UIViewController {
         turnOffControls()
         initialSetup()
         
+        
         if ( difficultyButton.isOn ) {
             defenseInterval = 1.0
         } else {
@@ -99,6 +103,8 @@ class ViewController: UIViewController {
         }
         sndClass.setClick()
         sndClass.setBeep()
+        
+        turnOffScoreBoard()
 }
     
     override func didReceiveMemoryWarning() {
@@ -325,6 +331,7 @@ class ViewController: UIViewController {
     
     @IBAction func runPressed(_ sender: Any) {
 //        sndClass.buttonPlayer.stop()
+        kickButton.isEnabled = false
         sndClass.buttonPlayer.play()
         if ( DEBUG > 3 ) {
             print("lightUpScreen - Before StartTimer")
@@ -361,6 +368,7 @@ class ViewController: UIViewController {
     
     @IBAction func upPressed(_ sender: Any) {
  //      sndClass.buttonPlayer.stop()
+        kickButton.isEnabled = false
         sndClass.buttonPlayer.play()
         if ( startOfDowns ) {
             if ( DEBUG > 3 ) {
@@ -382,7 +390,8 @@ class ViewController: UIViewController {
     
     @IBAction func downPressed(_ sender: Any) {
    //     sndClass.buttonPlayer.stop()
-          sndClass.buttonPlayer.play()
+        kickButton.isEnabled = false
+        sndClass.buttonPlayer.play()
         if ( startOfDowns ) {
             if ( DEBUG > 3 ) {
                 print("downPlayer - before startTimer")
@@ -406,30 +415,38 @@ class ViewController: UIViewController {
         // setting up defense order for the next play.  The order determines when a deplayer looks for
         // the offensive running back.
         
+        defensePlayCount = 0
         arc4random_stir()
+
         let rndNum = arc4random_uniform(511)
         
         if ( DEBUG > 3) {
             print("Random Number: \(rndNum)")
         }
         
-        if (directionForward) {
-            if ( (rndNum % 3) == 0 ) {
+        defenseStrategy = 1
+        
+        if ( (rndNum % 3) == 0 ) {
+            if (directionForward){
                 defIdx = [25,16,11,10,9]
-            } else if ( (rndNum % 3 ) == 1 ){
+            } else {
+                defIdx = [1,10,17,16,15]
+            }
+        } else if ( (rndNum % 3 ) == 1 ){
+            defenseStrategy = 2
+            if ( directionForward ){
                 defIdx = [9,10,11,16,25]
             } else {
-                defIdx = [16,25,9,10,11]
+                defIdx = [15,16,17,10,1]
             }
         } else {
-            if ( (rndNum % 3) == 0 ) {
-                defIdx = [1,10,17,16,15]
-            } else if ( (rndNum % 3 ) == 1 ) {
-                defIdx = [15,16,17,10,1]
-            } else  {
+            if ( directionForward ) {
+                defIdx = [16,25,9,10,11]
+            } else {
                 defIdx = [16,15,1,10,17]
             }
         }
+        
         startOfDowns = true
         
     }
@@ -544,6 +561,8 @@ class ViewController: UIViewController {
         
     }
     func startGame() {
+        turnOnScoreBoard()
+        lightUpField()
         countDown = QUARTERLIMIT
         directionForward = true
         startOfDowns = true
@@ -555,8 +574,6 @@ class ViewController: UIViewController {
         downs.text = ""
         fldPositon.text = ""
         yardsToGo.text = ""
-        clearAllDefense()
-        clearField()
         setCellImage(lbl: lblFieldPosition[idx])
         setupNextPlay()
         upButton.isEnabled = true
@@ -574,7 +591,10 @@ class ViewController: UIViewController {
         fieldPos = 20
         firstDownMarker = 30
         currentDown = 1
-
+        
+        clearAllDefense()
+        clearField()
+        turnOffScoreBoard()
         startGameTimer()
         displayDefense()
         
@@ -936,12 +956,48 @@ class ViewController: UIViewController {
         lbl.textColor = UIColor.orange
         
     }
+    
+    func moveDefenseForward() {
+        /*
+         Look to see if defense cam move forward, if there is another defensive player in cell,
+         Dont' move forward, instead, get a new player and see if they can move forward then move forward.
+        */
+        defensePlayCount += 1
+        var defenseSpaceOccupied = true
+        while (defenseSpaceOccupied) {
+            let rndPlay = Int(arc4random_uniform(4))
+            if ( defensePlayCount < 4 ) {
+                if (directionForward == true) {
+                    let arTmp = canMoveBack(cellIdx: rndPlay)
+                    if ( arTmp[0] < 99  ) {
+                        defIdx[rndPlay] = arTmp[1]
+                        defenseSpaceOccupied = false
+                    }
+                } else {
+                    let arTmp = canMoveForward(cellIdx: rndPlay)
+                    if ( arTmp[0] < 99 ) {
+                        defIdx[rndPlay] = arTmp[1]
+                        defenseSpaceOccupied = false
+                    }
+                }
+            } else {
+                findClosest()
+                defenseSpaceOccupied = false
+            }
+            
+        }
+        
+    }
 
     @objc func moveDefense() {
         // work on new algorythm to move the defense
         //  print ("Interval - \(defenseInterval)")
         clearAllDefense()
-        findClosest()
+        if ( defenseStrategy == 1 ) {
+            findClosest()
+        } else {
+            moveDefenseForward()
+        }
         displayDefense()
         madeTackle = runnerTackled()
         if ( madeTackle) {

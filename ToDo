@@ -2,10 +2,6 @@ TODO
 --------
 test to see if display works on ipad now.
 create classes for Player, Status, and Sounds
-change color of offensive player to Green, and the defense to Red
-redo defense logic so that it will move forward, randomly moving
-  a defensive player when the ball is a certain length way, however when the ball
-  is within 1 move the defense to intercept.
 
 
 
@@ -29,3 +25,10 @@ fix why sound is not working in class.
 added more sound effects to program, when a field goal fails it give a tackle sound
 added beeps when moving the player
 set up count down timer
+fixed scoreboard display
+change color of offensive player to Orange, and the defense to Red
+reorder defensive players in new stratagy
+Defense of over running next defensive player.  Need to check for other defensive players.
+work on new defensive stratagy... right now it is not working as expected.
+Now the kick button is disabled when the player runs on the 4th down.  It used to allow a person to kick when the play started
+
