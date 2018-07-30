@@ -26,9 +26,13 @@ class ViewController: UIViewController {
     var scoredFieldGoal: Bool = false
     var defenseStrategy = 2
     var defensePlayCount = 0
+    var delayOfGameStarted = false
+    var delayOfGameInt = 25
+    var firstPlayOfGame: Bool?
     
 
     let sizeModifier = objectMultiplierClass()
+    var delayOfGameTimer: Timer?
     let QUARTERLIMIT: Int32 = 900
     var defenseTimer : Timer?
     var blinkTimer : Timer?
@@ -67,6 +71,7 @@ class ViewController: UIViewController {
     
     
     //Score board
+    @IBOutlet weak var countTimerTxtFld: UITextField!
     @IBOutlet weak var downs: UITextField!
     @IBOutlet weak var fldPositon: UITextField!
     @IBOutlet weak var yardsToGo: UITextField!
@@ -160,12 +165,48 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func thirtySecCountDown() {
+        print(delayOfGameInt)
+        if ( !delayOfGameStarted ) {
+            delayOfGameStarted = true
+            delayOfGameInt = 25
+        } else {
+            delayOfGameInt -= 1
+        }
+        if ( delayOfGameInt > 0 ) {
+            countTimerTxtFld.text = String(delayOfGameInt)
+        } else {
+            // delay of game penalty
+            lightUpField()
+            delayOfGameStarted = false
+            delayOfGameTimer?.invalidate()
+            delayOfGameInt = 25
+            countTimerTxtFld.text = "Delay of Game Penalty"
+            if (directionForward) {
+                if ( fieldPos > 6 ) {
+                    fieldPos -= 5
+                } else {
+                    fieldPos = fieldPos / 2
+                }
+            } else {
+                if ( fieldPos < 96 )  {
+                    fieldPos += 5
+                } else {
+                    let newPos = fieldPos - 95
+                    fieldPos = fieldPos + (newPos/2)
+                }
+            }
+            calculateToFirstDown()
+        }
+        
+    }
+    
     /*
      Controller Button Actions
     */
     //Status Key
     @IBAction func statusPressed(_ sender: Any) {
-        
+        startDelayTimer()
         sndClass.buttonSounds.stop()
         sndClass.buttonSounds.play()
         if ( accessStatButton ) {
@@ -208,6 +249,7 @@ class ViewController: UIViewController {
     
     @IBAction func scorePressed(_ sender: Any) {
         sndClass.buttonSounds.stop()
+        startDelayTimer()
         sndClass.buttonSounds.play()
         if ( accessStatButton ) {
             blinkTimer?.invalidate()
@@ -231,8 +273,26 @@ class ViewController: UIViewController {
 
     }
     
-    @IBAction func kickPressed(_ sender: Any) {
+    func startDelayTimer () {
+        if ( !firstPlayOfGame! ) {
+            if ( delayOfGameStarted == false ) {
+                delayOfGameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(thirtySecCountDown), userInfo: nil, repeats: true)
+            }
+
+        }
         
+    }
+    
+    func stopDelayCountDown() {
+        if ( delayOfGameStarted ) {
+            delayOfGameTimer?.invalidate()
+            delayOfGameStarted = false
+            countTimerTxtFld.text = ""
+        }
+    }
+    
+    @IBAction func kickPressed(_ sender: Any) {
+        stopDelayCountDown()
         isGamePaused = false
         pauseGame(gamePaused: isGamePaused)
         isGamePaused = true
@@ -331,6 +391,7 @@ class ViewController: UIViewController {
     
     @IBAction func runPressed(_ sender: Any) {
 //        sndClass.buttonPlayer.stop()
+        stopDelayCountDown()
         kickButton.isEnabled = false
         sndClass.buttonPlayer.play()
         if ( DEBUG > 3 ) {
@@ -368,6 +429,7 @@ class ViewController: UIViewController {
     
     @IBAction func upPressed(_ sender: Any) {
  //      sndClass.buttonPlayer.stop()
+        stopDelayCountDown()
         kickButton.isEnabled = false
         sndClass.buttonPlayer.play()
         if ( startOfDowns ) {
@@ -390,6 +452,7 @@ class ViewController: UIViewController {
     
     @IBAction func downPressed(_ sender: Any) {
    //     sndClass.buttonPlayer.stop()
+        stopDelayCountDown()
         kickButton.isEnabled = false
         sndClass.buttonPlayer.play()
         if ( startOfDowns ) {
@@ -503,8 +566,9 @@ class ViewController: UIViewController {
         if ( powerButton.isOn == true ) {
             gameStarted()
             startGame()
+            firstPlayOfGame = true
         } else {
-           gameStopped()
+            gameStopped()
             stopGame()
         }
     }
@@ -732,6 +796,7 @@ class ViewController: UIViewController {
     
     func gameStopped() {
         turnOffControls()
+        stopDelayCountDown()
     }
     
     func turnOffControls() {
@@ -1148,6 +1213,9 @@ class ViewController: UIViewController {
     }
     
     func endOfPlayIncrements() {
+        if ( firstPlayOfGame! ) {
+            firstPlayOfGame? = false
+        }
         
         startDefenseTimer = false
         
