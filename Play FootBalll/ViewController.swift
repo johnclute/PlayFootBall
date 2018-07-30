@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     var defenseInterval = 2.0
     var startDefenseTimer : Bool = false
 
-    let DEBUG = 4
+    let DEBUG = 2
     
     // setup soundRoutines
     let sndClass = soundUtilities()
@@ -155,9 +155,11 @@ class ViewController: UIViewController {
         let fldPosFntSz = lblFieldPosition[0].font.pointSize
         let fldFont = sizeModifier.calcTextFieldFont()
         let newFldFont = UIFont(name: lblFieldPosition[0].font.fontName, size: CGFloat(CGFloat(fldFont) * fldPosFntSz))
-        print("Count of objects: \(lblFieldPosition.count)")
+        if ( DEBUG > 3 ) {
+            print("Count of objects: \(lblFieldPosition.count)")
+        }
         for i in 0...(lblFieldPosition.count - 1) {
-            if ( DEBUG < 4 ) {
+            if ( DEBUG > 4 ) {
                 print("Count: \(i)")
             }
             lblFieldPosition[i].font = newFldFont
@@ -768,10 +770,14 @@ class ViewController: UIViewController {
     
     @objc func clearPlayingField() {
         let sz = lblFieldPosition.count - 1
-        print("sz = \(sz)")
+        if ( DEBUG > 3 ) {
+            print("sz = \(sz)")
+        }
         for i in 0...sz {
             lblFieldPosition[i].text = ""
-           print("i = \(i)")
+            if ( DEBUG > 4) {
+                print("i = \(i)")
+            }
        }
         runButtonUpRoutine()
     }
@@ -1102,7 +1108,7 @@ class ViewController: UIViewController {
     }
     
     @objc func decrementGameTime() {
-        if ( DEBUG >= 3 ) {
+        if ( DEBUG > 3 ) {
             print("in decrement game timer")
         }
         countDown -= 1

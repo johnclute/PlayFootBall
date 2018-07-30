@@ -34,7 +34,7 @@ class objectMultiplierClass {
         var rtHeight: Float32 = 0
         let ratio = Float32((24/80.5) * (1/4))
         rtHeight = (ratio + 1.0 )
-        if ( DEBUG < 4 ) {
+        if ( DEBUG > 3 ) {
             print("Height: \(rtHeight)")
         }
         return rtHeight
