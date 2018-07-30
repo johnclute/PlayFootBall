@@ -34,4 +34,5 @@ Now the kick button is disabled when the player runs on the 4th down.  It used t
 added delay of game timer
 added new game icon
 made modifications to the delay of time clock, it wont start if you immediately start to play.
+added icons with alpha channel, fixed it, removed alpha channel icons and reloading
 
