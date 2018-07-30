@@ -166,13 +166,11 @@ class ViewController: UIViewController {
     }
     
     @objc func thirtySecCountDown() {
-        print(delayOfGameInt)
-        if ( !delayOfGameStarted ) {
-            delayOfGameStarted = true
-            delayOfGameInt = 25
-        } else {
-            delayOfGameInt -= 1
+        if ( DEBUG > 4 ) {
+            print(delayOfGameInt)
         }
+        
+        delayOfGameInt -= 1
         if ( delayOfGameInt > 0 ) {
             countTimerTxtFld.text = String(delayOfGameInt)
         } else {
@@ -276,6 +274,8 @@ class ViewController: UIViewController {
     func startDelayTimer () {
         if ( !firstPlayOfGame! ) {
             if ( delayOfGameStarted == false ) {
+                delayOfGameStarted = true
+                delayOfGameInt = 25
                 delayOfGameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(thirtySecCountDown), userInfo: nil, repeats: true)
             }
 

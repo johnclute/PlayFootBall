@@ -31,4 +31,7 @@ reorder defensive players in new stratagy
 Defense of over running next defensive player.  Need to check for other defensive players.
 work on new defensive stratagy... right now it is not working as expected.
 Now the kick button is disabled when the player runs on the 4th down.  It used to allow a person to kick when the play started
+added delay of game timer
+added new game icon
+made modifications to the delay of time clock, it wont start if you immediately start to play.
 
