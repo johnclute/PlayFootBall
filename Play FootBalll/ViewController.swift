@@ -10,6 +10,13 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
+    let DEBUG1 = 1
+    let DEBUG2 = 2
+    let DEBUG3 = 3
+    let DEBUG4 = 4
+    let DEBUG5 = 5
+    var CURRENTLEVEL = 1
+
     let IPHONE_SE = 320
     let IPHONE_SE_FNT = 16.0
     let tmpIdx = [1, 4, 7, 10, 13, 16, 19, 22,25]
@@ -53,8 +60,8 @@ class ViewController: UIViewController {
     var canBlink : Bool = false
     var defenseInterval = 2.0
     var startDefenseTimer : Bool = false
-
-    let DEBUG = 2
+    var didAKick: Bool = false
+    
     
     // setup soundRoutines
     let sndClass = soundUtilities()
@@ -122,6 +129,10 @@ class ViewController: UIViewController {
     
     
     func initialSetup() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In initialSetup")
+        }
+        
         var fntNewSize: CGFloat
         let y = downs.font?.pointSize
         let y2 = lblDown.font?.pointSize
@@ -134,7 +145,7 @@ class ViewController: UIViewController {
             fntNewSize = CGFloat(Int32(CGFloat(fntSz) * y!))
         }
         let newFnt = UIFont(name: downs.font!.fontName, size:  fntNewSize)
-        if ( DEBUG > 3 ) {
+        if ( DEBUG3 <= CURRENTLEVEL ) {
             print("Device: \(UIDevice.current.model)")
             print("Device Stats: ]\(UIScreen.main.bounds.maxX) x \(UIScreen.main.bounds.maxY)")
             let newHght = newFnt?.pointSize
@@ -155,11 +166,11 @@ class ViewController: UIViewController {
         let fldPosFntSz = lblFieldPosition[0].font.pointSize
         let fldFont = sizeModifier.calcTextFieldFont()
         let newFldFont = UIFont(name: lblFieldPosition[0].font.fontName, size: CGFloat(CGFloat(fldFont) * fldPosFntSz))
-        if ( DEBUG > 3 ) {
+        if ( DEBUG3 <= CURRENTLEVEL ) {
             print("Count of objects: \(lblFieldPosition.count)")
         }
         for i in 0...(lblFieldPosition.count - 1) {
-            if ( DEBUG > 4 ) {
+            if ( DEBUG3 <= CURRENTLEVEL ) {
                 print("Count: \(i)")
             }
             lblFieldPosition[i].font = newFldFont
@@ -168,7 +179,7 @@ class ViewController: UIViewController {
     }
     
     @objc func thirtySecCountDown() {
-        if ( DEBUG > 4 ) {
+        if ( DEBUG5 <= CURRENTLEVEL ) {
             print(delayOfGameInt)
         }
         
@@ -206,6 +217,9 @@ class ViewController: UIViewController {
     */
     //Status Key
     @IBAction func statusPressed(_ sender: Any) {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("statusPressed")
+        }
         startDelayTimer()
         sndClass.buttonSounds.stop()
         sndClass.buttonSounds.play()
@@ -242,12 +256,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func statusFinisedPressing(_ sender: Any) {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In statusFinishedPressing")
+        }
+
         if ( accessStatButton) {
             runButtonUpRoutine()
         }
     }
     
     @IBAction func scorePressed(_ sender: Any) {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In scorePressed")
+        }
         sndClass.buttonSounds.stop()
         startDelayTimer()
         sndClass.buttonSounds.play()
@@ -267,6 +288,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func scoreFinishedPressing(_ sender: Any) {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In scoreFinishedPressing")
+        }
+
         if ( accessStatButton ) {
             runButtonUpRoutine()
         }
@@ -274,6 +299,9 @@ class ViewController: UIViewController {
     }
     
     func startDelayTimer () {
+        if(DEBUG4 <= CURRENTLEVEL) {
+            print("In Start Delay Timer")
+        }
         if ( !firstPlayOfGame! ) {
             if ( delayOfGameStarted == false ) {
                 delayOfGameStarted = true
@@ -286,6 +314,9 @@ class ViewController: UIViewController {
     }
     
     func stopDelayCountDown() {
+        if(DEBUG4 <= CURRENTLEVEL) {
+            print("In Stop Delay Timer")
+        }
         if ( delayOfGameStarted ) {
             delayOfGameTimer?.invalidate()
             delayOfGameStarted = false
@@ -294,14 +325,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func kickPressed(_ sender: Any) {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In kickPressed")
+        }
+
         stopDelayCountDown()
+        didAKick = true
+        if (DEBUG2 <= CURRENTLEVEL) {
+            print ("In KickPressed after stopDelayCountDown")
+        }
         isGamePaused = false
         pauseGame(gamePaused: isGamePaused)
         isGamePaused = true
         sndClass.buttonSounds.stop()
         sndClass.buttonSounds.play()
         let fieldGoalLimit : UInt32 = 55
-        if (DEBUG > 3) {
+        if (DEBUG2 <= CURRENTLEVEL) {
             print("Kicking Ball")
         }
         arc4random_stir()
@@ -311,7 +350,7 @@ class ViewController: UIViewController {
                 // we are going to punt
                 let upperLimit : UInt32 = UInt32( 100 - fieldPos)
                 let randNum = Int(arc4random_uniform(upperLimit) + 15)
-                if ( DEBUG > 3 ) {
+                if ( DEBUG3 <= CURRENTLEVEL ) {
                     print("Random Number - \(randNum)")
                 }
                 let newFldPos = randNum + fieldPos
@@ -329,12 +368,12 @@ class ViewController: UIViewController {
                 }
             } else {
                 // field Goal
-                if ( DEBUG > 3 ) {
+                if ( DEBUG2 <= CURRENTLEVEL ) {
                     print("Home Kicking field Goal")
                 }
                 let randNum = Int(arc4random_uniform(fieldGoalLimit))
                 let relativeFieldPos = (100 - fieldPos)
-                if ( DEBUG > 3 ) {
+                if ( DEBUG3 <= CURRENTLEVEL ) {
                     print ("Random Number - \(randNum) upperlimite - \(fieldGoalLimit)")
                 }
                 if ( randNum > (relativeFieldPos)) { // seeing if field goal went farther then field pos
@@ -366,11 +405,11 @@ class ViewController: UIViewController {
                 }
             } else {
                 // field Goal
-                if ( DEBUG > 3 ) {
+                if ( DEBUG2 <= CURRENTLEVEL ) {
                     print("Visitor Kicking FieldGoal")
                 }
                 let randNum = Int(arc4random_uniform(fieldGoalLimit))
-                if ( DEBUG > 3 ) {
+                if ( DEBUG3 <= CURRENTLEVEL ) {
                     print ("Random Number - \(randNum) upperlimite - \(fieldPos)")
                 }
                 
@@ -385,18 +424,22 @@ class ViewController: UIViewController {
                 }
             }
         }
-        if ( DEBUG > 3 ) {
+        if ( DEBUG3 <= CURRENTLEVEL ) {
             print ("Field Position: \(fieldPos) and \(firstDownMarker)")
         }
 
     }
     
     @IBAction func runPressed(_ sender: Any) {
-//        sndClass.buttonPlayer.stop()
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In runPressed")
+        }
+
+        //sndClass.buttonSounds.stop()
         stopDelayCountDown()
         kickButton.isEnabled = false
-        sndClass.buttonPlayer.play()
-        if ( DEBUG > 3 ) {
+        sndClass.buttonSounds.play()
+        if ( DEBUG4 <= CURRENTLEVEL ) {
             print("lightUpScreen - Before StartTimer")
         }
         if ( startOfDowns ) {
@@ -413,7 +456,7 @@ class ViewController: UIViewController {
             madeTackle = runnerTackled()
             
             if (madeScore) {
-                if ( DEBUG > 3 ) {
+                if ( DEBUG4 <= CURRENTLEVEL ) {
                     print("Made a touch Down")
                 }
                 currentDown = 4
@@ -430,12 +473,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func upPressed(_ sender: Any) {
- //      sndClass.buttonPlayer.stop()
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In upPressed")
+        }
+
+       //sndClass.buttonSounds.stop()
         stopDelayCountDown()
         kickButton.isEnabled = false
-        sndClass.buttonPlayer.play()
+        sndClass.buttonSounds.play()
         if ( startOfDowns ) {
-            if ( DEBUG > 3 ) {
+            if ( DEBUG2 <= CURRENTLEVEL ) {
                 print("upPlayer - before StartTimer")
             }
             
@@ -453,12 +500,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func downPressed(_ sender: Any) {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In DownPressed")
+        }
+
    //     sndClass.buttonPlayer.stop()
         stopDelayCountDown()
         kickButton.isEnabled = false
-        sndClass.buttonPlayer.play()
+        sndClass.buttonSounds.play()
         if ( startOfDowns ) {
-            if ( DEBUG > 3 ) {
+            if ( DEBUG2 <= CURRENTLEVEL ) {
                 print("downPlayer - before startTimer")
             }
             
@@ -479,13 +530,16 @@ class ViewController: UIViewController {
          */
         // setting up defense order for the next play.  The order determines when a deplayer looks for
         // the offensive running back.
-        
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In setupNexPlay")
+        }
+
         defensePlayCount = 0
         arc4random_stir()
 
         let rndNum = arc4random_uniform(511)
         
-        if ( DEBUG > 3) {
+        if ( DEBUG3 <= CURRENTLEVEL) {
             print("Random Number: \(rndNum)")
         }
         
@@ -516,7 +570,7 @@ class ViewController: UIViewController {
         
     }
     
-    @objc func nothing() {
+    @objc func ballMovesForward() {
         clearField()
         setCellImage(lbl: lblFieldPosition[tmpIdx[tmpI]])
         tmpI += 1
@@ -524,6 +578,10 @@ class ViewController: UIViewController {
         if tmpI >= tmpIdx.count {
             pauseTimer?.invalidate()
             pauseTimer = nil
+            // we have finished the kick, we can now start the delay timer
+            didAKick = false
+            startDelayTimer()
+            
             if ( scoredFieldGoal ) {
                 sndClass.setBeepSound(sndIdx: 3)
                 sndClass.beepSound.play()
@@ -533,7 +591,7 @@ class ViewController: UIViewController {
             }        }
     }
     
-    @objc func nothing2() {
+    @objc func ballMovesBackward() {
         clearField()
         setCellImage(lbl: lblFieldPosition[tmpIdx[tmpI]])
         tmpI -= 1
@@ -541,6 +599,10 @@ class ViewController: UIViewController {
         if tmpI < 0 {
             pauseTimer?.invalidate()
             pauseTimer = nil
+            // we are finished the kick we can now start the delaytime after the kick
+            didAKick = false
+            startDelayTimer()
+            
             if ( scoredFieldGoal ) {
                 sndClass.setBeepSound(sndIdx: 3)
                 sndClass.beepSound.play()
@@ -552,17 +614,25 @@ class ViewController: UIViewController {
     }
     
     func showKick() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In showKick")
+        }
+
         let tmpsize = tmpIdx.count
         if ( directionForward ) {
             tmpI = 0
-            pauseTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(nothing), userInfo: nil, repeats: true)
+            pauseTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(ballMovesForward), userInfo: nil, repeats: true)
         } else {
             tmpI = tmpsize - 1
-            pauseTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(nothing2), userInfo: nil, repeats: true)
+            pauseTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(ballMovesBackward), userInfo: nil, repeats: true)
         }
     }
 
     @IBAction func powerSwitchTouched(_ sender: Any) {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In powerSwitchTouched")
+        }
+
         sndClass.buttonSounds.stop()
         sndClass.buttonSounds.play()
         if ( powerButton.isOn == true ) {
@@ -576,9 +646,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func programSwitchTouched(_ sender: Any) {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In programSwitchTouched")
+        }
+
         sndClass.buttonSounds.stop()
         sndClass.buttonSounds.play()
-        if ( DEBUG > 3 ) {
+        if ( DEBUG5 <= CURRENTLEVEL ) {
             print ("Program button is turned on: \(difficultyButton.isOn)")
         }
         if ( difficultyButton.isOn ) {
@@ -589,6 +663,10 @@ class ViewController: UIViewController {
     }
     
     func runButtonUpRoutine() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In runButtonUpRoutine")
+        }
+
         downs.text = ""
         fldPositon.text = ""
         yardsToGo.text = ""
@@ -611,7 +689,7 @@ class ViewController: UIViewController {
         } else {
             kickButton.isEnabled = false
         }
-        if ( DEBUG > 3 ) {
+        if ( DEBUG2 <= CURRENTLEVEL ) {
             print("Before isGamePaused in runButtonUpRoutine - \(isGamePaused)")
         }
         
@@ -627,6 +705,10 @@ class ViewController: UIViewController {
         
     }
     func startGame() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In startGame")
+        }
+
         turnOnScoreBoard()
         lightUpField()
         countDown = QUARTERLIMIT
@@ -667,7 +749,7 @@ class ViewController: UIViewController {
     }
 
     func stopGame () {
-        if ( DEBUG > 3 ) {
+        if ( DEBUG4 <= CURRENTLEVEL ) {
             print("in stopGame")
         }
         clearField()
@@ -697,6 +779,10 @@ class ViewController: UIViewController {
     }
 
     func moveBack() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In moveBack")
+        }
+
         fieldPos -= 1
         clearCellImage(lbl: lblFieldPosition[idx])
         idx -= 3
@@ -709,6 +795,10 @@ class ViewController: UIViewController {
     }
     
     func moveForward() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In moveForward")
+        }
+
         fieldPos += 1
         clearCellImage(lbl: lblFieldPosition[idx])
         idx += 3
@@ -719,6 +809,10 @@ class ViewController: UIViewController {
     }
     
     func moveDown() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In moveDown")
+        }
+
         clearCellImage(lbl: lblFieldPosition[idx])
         
         let testIdx = idx - 2
@@ -730,6 +824,10 @@ class ViewController: UIViewController {
     }
     
     func moveUp() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In moveUp")
+        }
+
         clearCellImage(lbl: lblFieldPosition[idx])
         
         if ( (idx % 3) != 0) {
@@ -741,16 +839,28 @@ class ViewController: UIViewController {
 
     
     func turnOnScoreBoard() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In turnOnScoreBoard")
+        }
+
         downs.text = "0"
         fldPositon.text = "0"
         yardsToGo.text = "0"
     }
     @objc func turnOffScoreBoard() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In turnOffScoreBoard")
+        }
+
         downs.text = ""
         fldPositon.text = ""
         yardsToGo.text = ""
     }
     func lightUpField() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In lightUpField")
+        }
+
         let sz = lblFieldPosition.count - 1
         for i in 0...sz {
             lblFieldPosition[i].text = "-"
@@ -758,6 +868,10 @@ class ViewController: UIViewController {
     }
     
     func initAllVars() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In initaAllVars")
+        }
+
         currentDown = 1
         if (directionForward) {
             fieldPos = 20
@@ -769,13 +883,17 @@ class ViewController: UIViewController {
     }
     
     @objc func clearPlayingField() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In clearPlayingField")
+        }
+
         let sz = lblFieldPosition.count - 1
-        if ( DEBUG > 3 ) {
+        if ( DEBUG5 <= CURRENTLEVEL ) {
             print("sz = \(sz)")
         }
         for i in 0...sz {
             lblFieldPosition[i].text = ""
-            if ( DEBUG > 4) {
+            if ( DEBUG5 <= CURRENTLEVEL) {
                 print("i = \(i)")
             }
        }
@@ -783,6 +901,10 @@ class ViewController: UIViewController {
     }
     
     func getRowCol(cellIdx: Int) -> [Int]{
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In getRowCol")
+        }
+
         var returnIdx = [99,99]
         let row = cellIdx % 3
         let col = (cellIdx-row) / 3
@@ -793,6 +915,10 @@ class ViewController: UIViewController {
     }
     
     func gameStarted () {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In gameStarted")
+        }
+
         turnOnScoreBoard()
         blinkTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(turnOffScoreBoard), userInfo: nil, repeats: false)
         lightUpField()
@@ -801,11 +927,19 @@ class ViewController: UIViewController {
     }
     
     func gameStopped() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In gameStopped")
+        }
+
         turnOffControls()
         stopDelayCountDown()
     }
     
     func turnOffControls() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In turnOffControls")
+        }
+
         statusButton.isEnabled = false
         scoreButton.isEnabled = false
         runRightLeftButton.isEnabled = false
@@ -816,6 +950,10 @@ class ViewController: UIViewController {
     }
     
     func turnOnControls() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In turnOnControls")
+        }
+
         statusButton.isEnabled = true
         scoreButton.isEnabled = true
         kickButton.isEnabled = true
@@ -827,12 +965,20 @@ class ViewController: UIViewController {
     
 
     func clearCellImage(lbl: UILabel) {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In clearCellImage")
+        }
+
         lbl.text = " "
     }
     
 
     
     func canMoveUp(cellIdx : Int) -> [Int] {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In canMoveUp")
+        }
+
         var rcVal = [99,99]
         var dist = 0
         let cmpVal = defIdx[cellIdx] - 1
@@ -857,6 +1003,10 @@ class ViewController: UIViewController {
     }
     
     func canMoveDown(cellIdx : Int) -> [Int] {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In canMoveDown")
+        }
+
         var rcVal = [99,99]
         var dist = 0
         let cmpVal = defIdx[cellIdx] + 1
@@ -882,6 +1032,10 @@ class ViewController: UIViewController {
     }
     
     func canMoveForward(cellIdx : Int) -> [Int] {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In canMoveForward")
+        }
+
         var rcVal = [99,99]
         var dist = 0
         let cmpVal = defIdx[cellIdx] + 3
@@ -907,6 +1061,10 @@ class ViewController: UIViewController {
     }
     
     func canMoveBack(cellIdx : Int) -> [Int] {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In canMoveBack")
+        }
+
         var rcVal = [99,99]
         var dist = 0
         let cmpVal = defIdx[cellIdx] - 3
@@ -933,6 +1091,10 @@ class ViewController: UIViewController {
 
     
     func findClosest() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In findClosest")
+        }
+
         var closestDist = 98
         var cellIdx = 99
         var tmpArr = [Int]()
@@ -984,18 +1146,30 @@ class ViewController: UIViewController {
         
     }
     func clearField() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In clearField")
+        }
+
         for i in 0...lblFieldPosition.count - 1 {
             lblFieldPosition[i].text = " "
         }
     }
     
     func clearAllDefense() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In clearAllDefense")
+        }
+
         for i in defIdx {
             clearCellImage(lbl: lblFieldPosition[i])
         }
     }
     
     func startBlink(defense: Int) {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In startBlink")
+        }
+
         if ( canBlink ) {
             dPlayer = defense
             blinkTimer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(blinkCell), userInfo: nil, repeats: true)
@@ -1004,6 +1178,10 @@ class ViewController: UIViewController {
     }
     
     @objc func blinkCell() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In blinkCell")
+        }
+
         if ( blinkStat) {
             setRegCell(lbl: lblFieldPosition[dPlayer])
             blinkStat = false
@@ -1013,6 +1191,10 @@ class ViewController: UIViewController {
         }
     }
     func setRegCell( lbl: UILabel) {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In setRegCell")
+        }
+
         lbl.font = UIFont(name: "Din Condensed", size: 24.0)
         lbl.text = "-"
         lbl.textColor = UIColor.red
@@ -1020,6 +1202,10 @@ class ViewController: UIViewController {
     
     
     func setCellImage(lbl: UILabel) {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In setCellImage")
+        }
+
         
         lbl.font = UIFont(name: "Din Alternate", size: 32.0)
         
@@ -1029,6 +1215,10 @@ class ViewController: UIViewController {
     }
     
     func moveDefenseForward() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In moveDefeseForward")
+        }
+
         /*
          Look to see if defense cam move forward, if there is another defensive player in cell,
          Dont' move forward, instead, get a new player and see if they can move forward then move forward.
@@ -1061,6 +1251,10 @@ class ViewController: UIViewController {
     }
 
     @objc func moveDefense() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In moveDefense")
+        }
+
         // work on new algorythm to move the defense
         //  print ("Interval - \(defenseInterval)")
         clearAllDefense()
@@ -1077,13 +1271,21 @@ class ViewController: UIViewController {
     }
     
     func displayDefense() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In displayDefense")
+        }
+
         for i in defIdx {
             setRegCell(lbl: lblFieldPosition[i])
         }
     }
     
     func startGameTimer () {
-        if ( DEBUG > 3 ) {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In startGameTimer")
+        }
+
+        if ( DEBUG2 <= CURRENTLEVEL ) {
             print("in start Game Timer")
         }
         if ( gameTimerStarted == false) {
@@ -1096,7 +1298,11 @@ class ViewController: UIViewController {
     }
     
     func pauseGame( gamePaused: Bool) {
-        if ( DEBUG > 3 ) {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In pauseGame")
+        }
+
+        if ( DEBUG4 <= CURRENTLEVEL ) {
             print( "in Pause Game" )
         }
         if ( gamePaused == true ) {
@@ -1108,7 +1314,11 @@ class ViewController: UIViewController {
     }
     
     @objc func decrementGameTime() {
-        if ( DEBUG > 3 ) {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In decrementGameTimer")
+        }
+
+        if ( DEBUG4 <= CURRENTLEVEL ) {
             print("in decrement game timer")
         }
         countDown -= 1
@@ -1135,11 +1345,15 @@ class ViewController: UIViewController {
 
 
     func startTimer() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In startTimer")
+        }
+
         if (  startDefenseTimer  == false ) {
             // we are going to disable the status buttons here.  This is pretty much when the play starts
             // and we can control when it will happen
             accessStatButton = false
-            if ( DEBUG > 3 ) {
+            if ( DEBUG4 <= CURRENTLEVEL ) {
                 print("Starting Defense Timer")
             }
             startDefenseTimer = true
@@ -1150,18 +1364,26 @@ class ViewController: UIViewController {
     }
     
     func stoptimer() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In stopTimer")
+        }
+
         if ( defenseTimer != nil ) {
             defenseTimer?.invalidate()
             if (defenseTimer?.isValid)! {
                 print("Could not stop Timer!")
             }
         }
-        if ( DEBUG > 3 ) {
+        if ( DEBUG3 <= CURRENTLEVEL ) {
             print("Stopping defense timer")
         }
     }
     
     func calculateToFirstDown () {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In calculateToFirstDown")
+        }
+
         if ( directionForward) {
             toFirstDown = firstDownMarker - fieldPos
         } else {
@@ -1171,6 +1393,10 @@ class ViewController: UIViewController {
     
     
     func runnerTackled() ->  Bool {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In runnerTackled")
+        }
+
         var i = 0
         var defPos: Int = 99
         while i < defIdx.count {
@@ -1187,6 +1413,10 @@ class ViewController: UIViewController {
     }
     
     func checkforTouchDown() -> Bool {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In checkforTouchDown")
+        }
+
         var rcBool = false
         if (directionForward) {
             if (fieldPos >= 100 ) {
@@ -1207,25 +1437,33 @@ class ViewController: UIViewController {
     }
     
     func setPlayDirection() {
+        if (DEBUG4 <= CURRENTLEVEL) {
+            print("In setplayerDirection")
+        }
+
         if (directionForward ) {
             directionForward = false
         } else {
             directionForward = true
         }
-        if ( DEBUG > 3 ) {
+        if ( DEBUG3 <= CURRENTLEVEL ) {
             print("Setting playDirection to \(directionForward)")
         }
         
     }
     
     func endOfPlayIncrements() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In endOfPlayIncrements")
+        }
+
         if ( firstPlayOfGame! ) {
             firstPlayOfGame? = false
         }
         
         startDefenseTimer = false
         
-        if ( DEBUG > 3 ) {
+        if ( DEBUG3 <= CURRENTLEVEL ) {
             print("Before - Current Down:\(currentDown)")
         }
         
@@ -1255,10 +1493,20 @@ class ViewController: UIViewController {
             
         } else {
             calculateToFirstDown()
-            
+            // Start delay of game timer, at the end of play.
+            // instead of waiting for somebody to start where they can still
+            // sit on the clock and win he game by just cheating when they are ahead and
+            // not playing for the rest of the game.
+            if (DEBUG3 <= CURRENTLEVEL) {
+                print("after calculateToFirstDown")
+            }
+
+            if (!didAKick) {
+                startDelayTimer()
+            }
             
             if ( toFirstDown <= 0) {
-                if ( DEBUG > 3 ) {
+                if ( DEBUG3 <= CURRENTLEVEL ) {
                     print("We have a first Down! \(toFirstDown)")
                 }
                 sndClass.setBeepSound(sndIdx: 0)
@@ -1288,7 +1536,7 @@ class ViewController: UIViewController {
                     if (directionForward) { // setting firstdown to reflex new play direction
                         firstDownMarker += 10
                         if (firstDownMarker > 100) {
-                            if ( DEBUG > 3 ) {
+                            if ( DEBUG3 <= CURRENTLEVEL ) {
                                 print("Setting firstdown marker to 100")
                             }
                             firstDownMarker = 100
@@ -1296,7 +1544,7 @@ class ViewController: UIViewController {
                     } else {
                         firstDownMarker -= 10
                         if ( firstDownMarker < 0 ) {
-                            if ( DEBUG > 3 ) {
+                            if ( DEBUG3 <= CURRENTLEVEL ) {
                                 print("Setting first Down maker to 0")
                             }
                             firstDownMarker =  0
@@ -1305,7 +1553,7 @@ class ViewController: UIViewController {
                 } else {
                     // increment current down
                     currentDown += 1
-                    if ( DEBUG > 3 ) {
+                    if ( DEBUG3 <= CURRENTLEVEL ) {
                         print("Current Down:\(currentDown)")
                     }
                 }
@@ -1315,10 +1563,14 @@ class ViewController: UIViewController {
     }
     
     func stopPlay() {
+        if (DEBUG5 <= CURRENTLEVEL) {
+            print("In stopPlay")
+        }
+
         // play is over, now we can allow access to the status buttons
         accessStatButton = true
         startOfDowns = false
-        if ( DEBUG > 3 ) {
+        if ( DEBUG3 <= CURRENTLEVEL ) {
             print("\(runRightLeftButton.state.rawValue)")
             print("Stopping play")
         }

@@ -10,7 +10,12 @@ import Foundation
 
 class objectMultiplierClass {
     let deviceDim = [667, 375]
-    let DEBUG = 3
+    let DEBUG1 = 1
+    let DEBUG2 = 2
+    let DEBUG3 = 3
+    let DEBUG4 = 4
+    let DEBUG5 = 5
+    let CURRENTLEVEL = 0
     
     // Score board information
     let scoreboardTextFieldHeight = 0.2963
@@ -34,7 +39,7 @@ class objectMultiplierClass {
         var rtHeight: Float32 = 0
         let ratio = Float32((24/80.5) * (1/4))
         rtHeight = (ratio + 1.0 )
-        if ( DEBUG > 3 ) {
+        if ( DEBUG2 == CURRENTLEVEL ) {
             print("Height: \(rtHeight)")
         }
         return rtHeight
