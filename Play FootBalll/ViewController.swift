@@ -8,7 +8,30 @@
 
 import UIKit
 import AVFoundation
+import StoreKit
 
+extension UserDefaults {
+    /// Convenience method to wrap the built-in .integer(forKey: ) method in an optional returning nil if the key doesn't exist.
+    func integerOptional(forKey: String) -> Int? {
+        guard self.object(forKey: forKey) != nil else { return nil }
+        return self.integer(forKey: forKey)
+    }
+    /// Convenience method to wrap the built-in .double(forKey: ) method in an optional returning nil if the key doesn't exist.
+    func doubleOptional(forKey: String) -> Double? {
+        guard self.object(forKey: forKey) != nil else { return nil }
+        return self.double(forKey: forKey)
+    }
+    /// Convenience method to wrap the built-in .float(forKey: ) method in an optional returning nil if the key doesn't exist.
+    func floatOptional(forKey: String) -> Float? {
+        guard self.object(forKey: forKey) != nil else { return nil }
+        return self.float(forKey: forKey)
+    }
+    /// Convenience method to wrap the built-in .bool(forKey: ) method in an optional returning nil if the key doesn't exist.
+    func boolOptional(forKey: String) -> Bool? {
+        guard self.object(forKey: forKey) != nil else { return nil }
+        return self.bool(forKey: forKey)
+    }
+}
 class ViewController: UIViewController {
     let DEBUG1 = 1
     let DEBUG2 = 2
@@ -113,12 +136,38 @@ class ViewController: UIViewController {
         } else {
             defenseInterval = 2.0
         }
-        sndClass.setClick()
         sndClass.setBeep()
         
         turnOffScoreBoard()
+        askForReview()
 }
     
+    func askForReview () {
+        let AppDefaults = UserDefaults.standard
+        
+        var cnt =  AppDefaults.integerOptional(forKey: "timesUsed")
+        if cnt != nil {
+            cnt = UserDefaults.standard.integer(forKey: "timesUsed")
+            if cnt == 10 {
+                SKStoreReviewController.requestReview()
+            } else if cnt == 50 {
+                SKStoreReviewController.requestReview()
+            } else if cnt == 75 {
+                SKStoreReviewController.requestReview()
+            }
+            cnt! += 1
+            if cnt! > 101 {
+                cnt = 101
+            }
+            AppDefaults.set(cnt, forKey: "timesUsed")
+            
+        } else {
+            cnt = 1
+            AppDefaults.set(cnt, forKey: "timesUsed")
+        }
+        
+    }
+
     override func didReceiveMemoryWarning() {
         //      super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -220,9 +269,11 @@ class ViewController: UIViewController {
         if (DEBUG4 <= CURRENTLEVEL) {
             print("statusPressed")
         }
+        // System sound for button click
+        AudioServicesPlaySystemSound(0x450)
+
         startDelayTimer()
-        sndClass.buttonSounds.stop()
-        sndClass.buttonSounds.play()
+
         if ( accessStatButton ) {
             blinkTimer?.invalidate()
             blinkTimer = nil
@@ -269,9 +320,9 @@ class ViewController: UIViewController {
         if (DEBUG4 <= CURRENTLEVEL) {
             print("In scorePressed")
         }
-        sndClass.buttonSounds.stop()
-        startDelayTimer()
-        sndClass.buttonSounds.play()
+        // System sound for button click
+        AudioServicesPlaySystemSound(0x450)
+
         if ( accessStatButton ) {
             blinkTimer?.invalidate()
             dPlayer = 99
@@ -328,6 +379,8 @@ class ViewController: UIViewController {
         if (DEBUG5 <= CURRENTLEVEL) {
             print("In kickPressed")
         }
+        // System sound for button click
+        AudioServicesPlaySystemSound(0x450)
 
         stopDelayCountDown()
         didAKick = true
@@ -337,8 +390,7 @@ class ViewController: UIViewController {
         isGamePaused = false
         pauseGame(gamePaused: isGamePaused)
         isGamePaused = true
-        sndClass.buttonSounds.stop()
-        sndClass.buttonSounds.play()
+
         let fieldGoalLimit : UInt32 = 55
         if (DEBUG2 <= CURRENTLEVEL) {
             print("Kicking Ball")
@@ -435,10 +487,12 @@ class ViewController: UIViewController {
             print("In runPressed")
         }
 
-        //sndClass.buttonSounds.stop()
+        // System sound for button click
+        AudioServicesPlaySystemSound(0x450);
+
         stopDelayCountDown()
         kickButton.isEnabled = false
-        sndClass.buttonSounds.play()
+
         if ( DEBUG4 <= CURRENTLEVEL ) {
             print("lightUpScreen - Before StartTimer")
         }
@@ -476,11 +530,12 @@ class ViewController: UIViewController {
         if (DEBUG5 <= CURRENTLEVEL) {
             print("In upPressed")
         }
+        // System sound for button click
+        AudioServicesPlaySystemSound(0x450);
 
-       //sndClass.buttonSounds.stop()
         stopDelayCountDown()
         kickButton.isEnabled = false
-        sndClass.buttonSounds.play()
+
         if ( startOfDowns ) {
             if ( DEBUG2 <= CURRENTLEVEL ) {
                 print("upPlayer - before StartTimer")
@@ -504,10 +559,12 @@ class ViewController: UIViewController {
             print("In DownPressed")
         }
 
-   //     sndClass.buttonPlayer.stop()
+        // System sound for button click
+        AudioServicesPlaySystemSound(0x450)
+
         stopDelayCountDown()
         kickButton.isEnabled = false
-        sndClass.buttonSounds.play()
+
         if ( startOfDowns ) {
             if ( DEBUG2 <= CURRENTLEVEL ) {
                 print("downPlayer - before startTimer")
@@ -632,9 +689,9 @@ class ViewController: UIViewController {
         if (DEBUG4 <= CURRENTLEVEL) {
             print("In powerSwitchTouched")
         }
+        // System sound for button click
+        AudioServicesPlaySystemSound(1057)
 
-        sndClass.buttonSounds.stop()
-        sndClass.buttonSounds.play()
         if ( powerButton.isOn == true ) {
             gameStarted()
             startGame()
@@ -649,9 +706,9 @@ class ViewController: UIViewController {
         if (DEBUG4 <= CURRENTLEVEL) {
             print("In programSwitchTouched")
         }
+        // System sound for button click
+        AudioServicesPlaySystemSound(1104)
 
-        sndClass.buttonSounds.stop()
-        sndClass.buttonSounds.play()
         if ( DEBUG5 <= CURRENTLEVEL ) {
             print ("Program button is turned on: \(difficultyButton.isOn)")
         }
