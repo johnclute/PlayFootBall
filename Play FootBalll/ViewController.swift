@@ -5,7 +5,36 @@
 //  Created by John Clute on 5/23/18.
 //  Copyright © 2018 creativeApps. All rights reserved.
 //
+/***********************************************************************************************************************
+ ElectronicGridIron, formerly Play Football
+ Play Football is currently called ElectronicGridIron in the iTunes store, it is a clone of the 1970's,
+ Electronic Football Game created by Matel.  This code is not using any code from any other games or products from
+ Matel, the only thing it is copying is the Idea, of a single runner and 6 defenders, 3 directional buttons, 1 kick button
+ 2 Status buttons, and 2 switches, power and program.  Everything else has been figured out by little old me.
 
+ Why, would I do something like this, 2 reasons, first - I wanted to write a game, and I really didn't know anything about
+ game design.  And the thought of writing it was daunting.  So instead of a complex video game why not write a game
+ when games were simple, Matel football was one of the first hand held games out there, since the iPhone is basically a
+ handheld device it seemed to me, a logical choice.  Also the graphics for all practical purposes is quite primative.
+ Not to say anything on the iPhone is primative.  Instead of writing a sprite to move around the screen like most
+ modern games do, the concept of using a LED, simulated by using UILabels is working out just great. The runner and defense
+ move around the field nicely.
+ Reason two - Have never been able to beat the game, and since Handheld football games became scarce why not write my own
+ and play it.
+ 
+ The code uses 3 classes, ViewController, objectMultiplier, and SoundUtilites.
+ ViewController, is the main class for the game, this is were all the controls, logic and displays for the game reside.
+ objectMutliplier, contains code to calculate what size a textfield, label, button, and font have to be, in order to be
+                   displayed properly on the various iphone sizes.
+ SoundUtilities, sounds objects are controlled here, not the play, but what is loaded in the audio class to be played
+                 when needed. Later on in development, was having issues with the button click, instead of using the sound utitily
+                 Used methods built into the AVfoundating the ios apps when making the keyboard click.  The only methods now
+                 being used are whisle sounds used at the of each play.
+ 
+ NOTE: In the future Timer Utilies may be used, this game uses them quite heavily.
+
+ 
+ ***********************************************************************************************************************/
 import UIKit
 import AVFoundation
 import StoreKit
@@ -62,6 +91,7 @@ class ViewController: UIViewController {
     var delayOfGameStarted = false
     var delayOfGameInt = 25
     var firstPlayOfGame: Bool?
+    var playInProgress: Bool?
     
 
     let sizeModifier = objectMultiplierClass()
@@ -226,6 +256,7 @@ class ViewController: UIViewController {
         lblTimeRemaining.font = lblFnt
         lblVisitor.font = lblFnt
         lblVisitor.font = lblFnt
+        playInProgress = false
         
         let fldPosFntSz = lblFieldPosition[0].font.pointSize
         let fldFont = sizeModifier.calcTextFieldFont()
@@ -291,7 +322,11 @@ class ViewController: UIViewController {
         // System sound for button click
         AudioServicesPlaySystemSound(0x450)
 
-        startDelayTimer()
+        // if we are playing a down, the when the status keys is pressed it
+        // should not all the delaytimer to start.
+        if ( !playInProgress! ) {
+            startDelayTimer()
+        }
 
         if ( accessStatButton ) {
             blinkTimer?.invalidate()
@@ -415,6 +450,8 @@ class ViewController: UIViewController {
         // System sound for button click
         AudioServicesPlaySystemSound(0x450)
 
+        turnOffControls()
+        
         stopDelayCountDown()
         didAKick = true
         if (DEBUG2 <= CURRENTLEVEL) {
@@ -424,6 +461,7 @@ class ViewController: UIViewController {
         pauseGame(gamePaused: isGamePaused)
         isGamePaused = true
 
+        
         let fieldGoalLimit : UInt32 = 55
         if (DEBUG2 <= CURRENTLEVEL) {
             print("Kicking Ball")
@@ -512,7 +550,7 @@ class ViewController: UIViewController {
         if ( DEBUG3 <= CURRENTLEVEL ) {
             print ("Field Position: \(fieldPos) and \(firstDownMarker)")
         }
-
+        playInProgress? = true
     }
     
     /// <#Description#>
@@ -522,7 +560,7 @@ class ViewController: UIViewController {
         if (DEBUG5 <= CURRENTLEVEL) {
             print("In runPressed")
         }
-
+        playInProgress? = true
         // System sound for button click
         AudioServicesPlaySystemSound(0x450);
 
@@ -569,6 +607,7 @@ class ViewController: UIViewController {
         if (DEBUG5 <= CURRENTLEVEL) {
             print("In upPressed")
         }
+        playInProgress? = true
         // System sound for button click
         AudioServicesPlaySystemSound(0x450);
 
@@ -601,6 +640,7 @@ class ViewController: UIViewController {
             print("In DownPressed")
         }
 
+        playInProgress? = true
         // System sound for button click
         AudioServicesPlaySystemSound(0x450)
 
@@ -678,6 +718,7 @@ class ViewController: UIViewController {
         tmpI += 1
         
         if tmpI >= tmpIdx.count {
+            turnOnControls()
             pauseTimer?.invalidate()
             pauseTimer = nil
             // we have finished the kick, we can now start the delay timer
@@ -700,6 +741,7 @@ class ViewController: UIViewController {
         tmpI -= 1
         
         if tmpI < 0 {
+            turnOnControls()
             pauseTimer?.invalidate()
             pauseTimer = nil
             // we are finished the kick we can now start the delaytime after the kick
@@ -1751,6 +1793,9 @@ class ViewController: UIViewController {
             print("In stopPlay")
         }
 
+        // set play progress flag to false, this allows the delay timer to start in status.
+        playInProgress = false
+        
         // play is over, now we can allow access to the status buttons
         accessStatButton = true
         startOfDowns = false

@@ -80,7 +80,6 @@
 		FDB1F02520E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F01E20E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 */; };
 		FDB1F02720E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F02020E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 */; };
 		FDB1F02820E16A95001CD9D5 /* MEF4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDB1F02120E16A95001CD9D5 /* MEF4.mp3 */; };
-		FDB1F02A20E16ED3001CD9D5 /* TimerUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1F02920E16ED3001CD9D5 /* TimerUtilities.swift */; };
 		FDC10D0A20CE3695004B6825 /* objectMultipliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC10D0920CE3695004B6825 /* objectMultipliers.swift */; };
 /* End PBXBuildFile section */
 
@@ -161,7 +160,6 @@
 		FDB1F01E20E16A95001CD9D5 /* partnersinrhyme_BEEP1B.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = partnersinrhyme_BEEP1B.mp3; sourceTree = "<group>"; };
 		FDB1F02020E16A95001CD9D5 /* partnersinrhyme_CLICK17C.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = partnersinrhyme_CLICK17C.mp3; sourceTree = "<group>"; };
 		FDB1F02120E16A95001CD9D5 /* MEF4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MEF4.mp3; sourceTree = "<group>"; };
-		FDB1F02920E16ED3001CD9D5 /* TimerUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtilities.swift; sourceTree = "<group>"; };
 		FDC10D0920CE3695004B6825 /* objectMultipliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectMultipliers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,7 +209,6 @@
 				FD00B73C20B5ED36002AB44F /* Info.plist */,
 				FD00B73420B5ED34002AB44F /* Play_FootBalll.xcdatamodeld */,
 				FDB1F01820E16A14001CD9D5 /* SoundUtilities.swift */,
-				FDB1F02920E16ED3001CD9D5 /* TimerUtilities.swift */,
 			);
 			path = "Play FootBalll";
 			sourceTree = "<group>";
@@ -463,7 +460,6 @@
 			files = (
 				FD00B73020B5ED34002AB44F /* ViewController.swift in Sources */,
 				FD00B72E20B5ED34002AB44F /* AppDelegate.swift in Sources */,
-				FDB1F02A20E16ED3001CD9D5 /* TimerUtilities.swift in Sources */,
 				FD00B73620B5ED34002AB44F /* Play_FootBalll.xcdatamodeld in Sources */,
 				FDB1F01920E16A14001CD9D5 /* SoundUtilities.swift in Sources */,
 				FDC10D0A20CE3695004B6825 /* objectMultipliers.swift in Sources */,

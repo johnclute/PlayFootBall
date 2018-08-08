@@ -5,8 +5,6 @@ create classes for Player, Status, and Sounds
 
 Comment methods and classes.
 
-
-
 Finished
 --------
 Main interface is created.... Displays on all iphone screens
@@ -38,3 +36,5 @@ added new game icon
 made modifications to the delay of time clock, it wont start if you immediately start to play.
 added icons with alpha channel, fixed it, removed alpha channel icons and reloading
 when the app starts it will ask for a review.
+Bug - can hit the status bar again, and start the delay of game timer.
+

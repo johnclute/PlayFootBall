@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.091404"
+            timestampString = "555442998.078962"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.092115"
+            timestampString = "555442998.079383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "412"
-            endingLineNumber = "412"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "418"
+            endingLineNumber = "418"
+            landmarkName = "startDelayTimer()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.092522"
+            timestampString = "555442998.079645"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.0928479"
+            timestampString = "555442998.079908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "416"
+            endingLineNumber = "416"
+            landmarkName = "startDelayTimer()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.0931669"
+            timestampString = "555442998.080187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "459"
-            endingLineNumber = "459"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "468"
+            endingLineNumber = "468"
+            landmarkName = "kickPressed(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,13 +90,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.093478"
+            timestampString = "555442998.080431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "845"
-            endingLineNumber = "845"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "858"
+            endingLineNumber = "858"
+            landmarkName = "runButtonUpRoutine()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,13 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.0938261"
+            timestampString = "555442998.080688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "764"
-            endingLineNumber = "764"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "777"
+            endingLineNumber = "777"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,13 +122,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.094326"
+            timestampString = "555442998.080941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "696"
-            endingLineNumber = "696"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "707"
+            endingLineNumber = "707"
+            landmarkName = "setupNextPlay()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -138,13 +138,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.094837"
+            timestampString = "555442998.081182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "699"
-            endingLineNumber = "699"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "710"
+            endingLineNumber = "710"
+            landmarkName = "setupNextPlay()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,13 +154,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.095294"
+            timestampString = "555442998.081423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1220"
-            endingLineNumber = "1220"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1233"
+            endingLineNumber = "1233"
+            landmarkName = "canMoveForward(cellIdx:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,13 +170,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.095806"
+            timestampString = "555442998.081654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,13 +186,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Play FootBalll/ViewController.swift"
-            timestampString = "554789696.096308"
+            timestampString = "555442998.08189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "565"
-            endingLineNumber = "565"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "574"
+            endingLineNumber = "574"
+            landmarkName = "runPressed(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
